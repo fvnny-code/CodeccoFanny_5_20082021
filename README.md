@@ -1,1 +1,1 @@
-# CodeccoFanny_5_20082021
+Développeur web Openclassrooms - Projet 5 : "Construire un site e-commerce"
