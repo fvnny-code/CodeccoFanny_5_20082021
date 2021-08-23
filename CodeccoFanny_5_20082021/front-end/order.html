@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Commande - Orinoco</title>
+    <meta name="title" content="Commande - Orinoco" />
+    <meta
+      name="description"
+      content="Orinoco est un site e-commerce à applications thématiques ne vendant qu'un seul groupe de produits"
+    />
+    <!-- Open Graph / Facebook -->
+
+    <!-- Twitter Cards -->
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <script src="front-end/js/index.js" defer></script>
+    </head>
+<body>
+<header>
+    <nav class="main-nav">
+        <a href="/index.html">
+            <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+        </a>
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a class="nav_link" aria-current="page" href="/index.html">Accueil</a>
+          </li>
+          <li class="nav_item">
+            <a class="nav_link" href="/front-end/panier.html">Panier</a>
+          </li>
+        </ul>
+    </nav>
+</header>
+<main>
+<section class="container infos">
+<h2> Commande validée </h2>
+<p> Merci de votre achat sur notre site !<br> Votre commande a bien été prise en compte.</p>
+<p>N° d'identifiant : </p>
+<p>Votre facture vous sera transmise par mail à :</p>
+<p>Votre commande sera envoyée à l'adresse suivante :</p>
+</section>
+<section class="container recap">
+    <h2>récapitulatif de commande</h2>
+    <div class="container container_table">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope ="col">Produit</th>          
+                <th scope ="col">Quantité</th>
+                <th scope ="col">Prix</th>
+                <th scope ="col">Sous-total</th>
+              </tr>
+            </thead>
+            <tbody id="CartProducts">
+              <!-- Insertion panier.js -->
+              <tr>
+                <td></td> <!-- produit -->
+                <td>
+                  <form class="select-quantity" action="select">
+                    <select name="quantity" aria-label="sélectionner la quantité">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </form>
+                </td> <!-- quantité  -->
+                <td id="productPrice"></td> <!-- prix  -->
+                <td id="totalProductPrice"></td> <!-- sous-total  -->
+              </tr>
+              <tr class="bg-light">
+                <td colspan="3">Total</td>
+                <td colspan="1"></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</section>
+<div class="container btn">
+    <button id="print" class="btn" aria-label="imprimer votre commande" type="submit">Imprimer la commande</button>
+</div>
+</main>
+<footer>
+    <nav class="secondary-nav">
+        <ul class="nav_list">
+            <li class="nav_item">
+              <a class="nav_link" href="/index.html"title="Accueil">Accueil</a>
+            </li>
+            <li class="nav_item">
+              <a class="nav_link" href="mailto:contact@orinico.com"title="Contact">Contact</a>
+            </li>
+            <li>
+                <a href="#" title="mentions légales">Mentions Légales</a>
+            </li>
+          </ul>
+    </nav>
+    <p class="copyright">Orinoco © 2021</p>
+</footer>
+
+
+</body>

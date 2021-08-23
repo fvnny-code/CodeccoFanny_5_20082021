@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Panier - Orinoco</title>
+    <meta name="title" content="Panier - Orinoco" />
+    <meta
+      name="description"
+      content="Orinoco est un site e-commerce à applications thématiques ne vendant qu'un seul groupe de produits"
+    />
+    <!-- Open Graph / Facebook -->
+
+    <!-- Twitter Cards -->
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <script src="front-end/js/index.js" defer></script>
+    </head>
+<body>
+<header>
+    <nav class="main-nav">
+        <a href="/index.html">
+            <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+        </a>
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a class="nav_link" aria-current="page" href="/index.html">Accueil</a>
+          </li>
+          <li class="nav_item">
+            <a class="nav_link" href="front-end/panier.html">Panier</a>
+          </li>
+        </ul>
+      </nav>
+</header>
+<main>
+  <!-- Panier vide -->
+  <section id="emptyCart">
+    <div class="container cta">
+      <h1 class="main-title">
+        Il semblerait que votre panier soit vide.<br>
+        Pour commencer vos achats ...
+      </h1>
+      <a href="/index.html" class="btn" aria-label="lien pour commencer vos achats" role="button">
+      C'est par ici</a>
+    </div>
+  </section>
+  <!-- Tableau -->
+  <section id="cart">
+    <h2>Contenu du panier</h2>
+    <div class="container container_table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope ="col">Produit</th>          
+            <th scope ="col">Quantité</th>
+            <th scope ="col">Prix</th>
+            <th scope ="col">Sous-total</th>
+          </tr>
+        </thead>
+        <tbody id="CartProducts">
+          <!-- Insertion panier.js -->
+          <tr>
+            <td></td> <!-- produit -->
+            <td>
+              <form class="select-quantity" action="select">
+                <select name="quantity" aria-label="sélectionner la quantité">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </form>
+            </td> <!-- quantité  -->
+            <td id="productPrice"></td> <!-- prix  -->
+            <td id="totalProductPrice"></td> <!-- sous-total  -->
+          </tr>
+          <tr class="bg-light">
+            <td colspan="3">Total</td>
+            <td colspan="1"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container btn">
+      <button id="cartValidation" class="btn" aria-label="valider votre panier" type="submit">Valider le panier</button>
+      <button class="btn danger" aria-label="vider votre panier" type="button">Vider le panier</button>
+    </div>
+  </section>
+  <!-- Formulaire -->
+  <section id="orderForm">
+    <div class="container container_form">
+      <h2>Merci de remplir le Formulaire ci-dessous afin de passer votre commande <em>(tous les champs sont requis)</em></h2>
+      <form id="orderFormValidation">
+        <div class="form flex-col"> <!-- flex direction : column -->
+          <label class="form_label" for="prenom">Prénom</label>
+          <input id="firstName" class="form_input" aria-label="Prénom" type="text" placeholder="votre prénom" required="">
+        </div>
+        <div class="form flex-col">
+          <label class="form_label" for="nom">Nom</label>
+          <input id="lastName" class="form_input" aria-label="nom" type="text" placeholder="votre nom" required="">
+        </div>
+        <div class="form flex-col">
+          <label class="form_label" for="mail">Email</label>
+          <input id="email" class="form_input" aria-label="email" type="text" placeholder="ex : orinico@mail.com" required="">
+        </div>
+        <div class="form flex-col">
+          <label class="form_label" for="adresse">Adresse</label>
+          <input id="address" class="form_input" aria-label="adresse" type="text" placeholder="numéro, voie, code postal" required="">
+        </div>
+        <div class="form flex-col">
+          <label class="form_label" for="ville">Ville</label>
+          <input id="city" class="form_input" aria-label="ville" type="text" placeholder="ville" required="">
+        </div>
+        <div class="form flex-col">
+          <input id="terms" aria-label="valider les conditions générales de vente" type="checkbox" value="" required="">
+          <label class="terms-check" for="check">Accepter les termes et conditions générales de vente</label>
+        </div>
+        <div class="container btn">
+          <button id="order" class="btn" aria-label="procéder au paiement" type="submit">Procéder au paiement</button>
+        </div>
+      
+      </form>
+
+    </div>
+
+  </section>
+  <!--  -->
+
+</main>
+<footer>
+    <nav class="secondary-nav">
+        <ul class="nav_list">
+            <li class="nav_item">
+              <a class="nav_link" href="/index.html"title="Accueil">Accueil</a>
+            </li>
+            <li class="nav_item">
+              <a class="nav_link" href="mailto:contact@orinico.com"title="Contact">Contact</a>
+            </li>
+            <li>
+                <a href="#" title="mentions légales">Mentions Légales</a>
+            </li>
+          </ul>
+    </nav>
+    <p class="copyright">Orinoco © 2021</p>
+</footer>
+
+
+</body>
