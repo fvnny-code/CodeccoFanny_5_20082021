@@ -1,0 +1,170 @@
+/* reset */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-family: "Shrikhand", sans-serif;
+  margin-top: 0;
+}
+
+a,
+.btn {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: #2e323f;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn {
+  display: inline-block;
+  background: #99e2d0;
+  /* color: #1b6150; */
+  border-radius: 4rem;
+  padding: 0.2rem 1rem;
+  text-transform: uppercase;
+}
+
+.btn:hover,
+.btn:focus {
+  /* opacity: 0.75; */
+  transform: scale(1.1);
+  transition: all 300ms;
+  box-shadow: 0 0.5rem 1rem rgba(10, 10, 10, 0.329);
+}
+
+header,
+footer {
+  background: whitesmoke;
+}
+
+/* sections */
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1em 0;
+  /* text-align: center; */
+}
+nav,
+.nav_list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+nav img {
+  max-height: 80px;
+}
+
+.nav_item {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.nav_link:hover {
+  color: #99e2d0;
+  transition: all 300ms;
+}
+
+/* presentation */
+
+.presentation {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #ff79d998;
+  /* color:#2e323f; */
+  color: white;
+
+  border-radius: 1.5rem;
+}
+
+/* products */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+
+  max-width: 100%;
+
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1.2rem;
+
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(10, 10, 10, 0.329);
+  background: #ff79d998;
+}
+
+.card_img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 35rem;
+  border: 0 solid transparent;
+  border-radius: 1rem;
+}
+
+.card_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  line-height: 1.7rem;
+}
+.card_title {
+  text-transform: uppercase;
+  font-family: "shrikhand", cursive;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
+/* footer */
+.secondary-nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.secondary-nav .nav_list {
+  margin-left: -1.5rem;
+}
+.secondary-nav .nav_item {
+  margin: auto;
+  list-style: none;
+  padding: 0.5em;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.secondary-nav p {
+  font-size: 1.2rem;
+}

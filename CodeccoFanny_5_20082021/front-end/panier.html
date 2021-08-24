@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- fonts -->
+  <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+    </style>
 
     <title>Panier - Orinoco</title>
     <meta name="title" content="Panier - Orinoco" />
@@ -21,7 +25,7 @@
     </head>
 <body>
 <header>
-    <nav class="main-nav">
+    <nav class="container main-nav">
         <a href="/index.html">
             <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
         </a>
@@ -37,7 +41,7 @@
 </header>
 <main>
   <!-- Panier vide -->
-  <!-- <section id="emptyCart">
+  <section id="emptyCart" class="container">
     <div class="container cta">
       <h1 class="main-title">
         Il semblerait que votre panier soit vide.<br>
@@ -46,9 +50,9 @@
       <a href="/index.html" class="btn" aria-label="lien pour commencer vos achats" role="button">
       C'est par ici</a>
     </div>
-  </section> -->
+  </section>
   <!-- Tableau -->
-  <section id="cart">
+  <section id="cart" class="container">
     <h2>Contenu du panier</h2>
     <div class="container container_table">
       <table class="table">
@@ -90,15 +94,16 @@
         </tbody>
       </table>
     </div>
-    <div class="container btn">
       <button id="cartValidation" class="btn" aria-label="valider votre panier" type="submit">Valider le panier</button>
+
       <button class="btn danger" aria-label="vider votre panier" type="button">Vider le panier</button>
-    </div>
+  
   </section>
   <!-- Formulaire -->
-  <section id="orderForm">
+  <section id="orderForm"class="container">
+    <h2>Merci de remplir le Formulaire ci-dessous afin de passer votre commande <em>(tous les champs sont requis)</em></h2>
     <div class="container container_form">
-      <h2>Merci de remplir le Formulaire ci-dessous afin de passer votre commande <em>(tous les champs sont requis)</em></h2>
+    
       <form id="orderFormValidation">
         <div class="form flex-col"> <!-- flex direction : column -->
           <label class="form_label" for="prenom">Prénom</label>
@@ -124,7 +129,7 @@
           <input id="terms" aria-label="valider les conditions générales de vente" type="checkbox" value="" required="">
           <label class="terms-check" for="check">Accepter les termes et conditions générales de vente</label>
         </div>
-        <div class="container btn">
+        <div class="container">
           <button id="order" class="btn" aria-label="procéder au paiement" type="submit">Procéder au paiement</button>
         </div>
       
@@ -137,20 +142,20 @@
 
 </main>
 <footer>
-    <nav class="secondary-nav">
-        <ul class="nav_list">
-            <li class="nav_item">
-              <a class="nav_link" href="/index.html"title="Accueil">Accueil</a>
-            </li>
-            <li class="nav_item">
-              <a class="nav_link" href="mailto:contact@orinico.com"title="Contact">Contact</a>
-            </li>
-            <li>
-                <a href="#" title="mentions légales">Mentions Légales</a>
-            </li>
-          </ul>
-    </nav>
-    <p class="copyright">Orinoco © 2021</p>
+  <nav class="secondary-nav">
+    <ul class="nav_list">
+        <li class="nav_item">
+          <a class="nav_link" href="../index.html"title="Accueil">Accueil</a>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="mailto:contact@orinico.com"title="Contact">Contact</a>
+        </li>
+        <li class="nav_item">
+            <a class= "nav_link" href="#" title="mentions légales">Mentions Légales</a>
+        </li>
+      </ul>
+      <p class="copyright">Orinoco © 2021</p>
+</nav>
 </footer>
 
 

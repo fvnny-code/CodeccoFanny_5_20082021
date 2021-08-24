@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts -->
+    <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+    </style>
 
     <title>Accueil - Orinoco</title>
     <meta name="title" content="Accueil - Orinoco" />
@@ -15,7 +19,7 @@
 
     <!-- Twitter Cards -->
 
-    <link rel="stylesheet" href="styles.ccs" />
+    <link rel="stylesheet" href="styles.css"/>
 
     <script src="front-end/js/index.js" defer></script>
   </head>
@@ -23,7 +27,7 @@
 
     <header>
 
-      <nav class="main-nav">
+      <nav class="container main-nav">
         <a href="index.html">
             <img src="back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
         </a>
@@ -46,16 +50,14 @@
             <p>Retrouvez notre collection d'oursons en peluche personnalisables</p>       
         </section>
         <section class="container products">
-            <div class="container cards">
-                <a class="card" href="#">
-                    <figure>
+            <div class="cards">
+                <a href="#">
+                    <figure class="card">
                         <img class="card_img" src="back-end/images/teddy_1.jpg" alt="Ourson en peluche marron">
                         <figcaption class="card_body">
                             <div class="card_content">
                                 <h2 class="card_title">Norbert</h2>
-                            </div>
-                            <div class="card_content">
-                                <h2 class="card_price">29.00 €</h2>
+                                <h3 class="card_price">29.00 €</h3>
                             </div>
                             <p class="card_description">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -64,15 +66,13 @@
                         </figcaption>
                     </figure>
                 </a>
-                <a class="card" href="#">
-                    <figure>
+                <a  href="#">
+                    <figure class="card">
                         <img class="card_img" src="back-end/images/teddy_2.jpg" alt="Ourson en peluche beige">
                         <figcaption class="card_body">
                             <div class="card_content">
                                 <h2 class="card_title">Arnold</h2>
-                            </div>
-                            <div class="card_content">
-                                <h2 class="card_price">39.00 €</h2>
+                                <h3 class="card_price">39.00 €</h3>
                             </div>
                             <p class="card_description">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -81,15 +81,13 @@
                         </figcaption>
                     </figure>
                 </a>
-                <a class="card" href="#">
-                    <figure>
+                <a href="#">
+                    <figure class="card">
                         <img class="card_img" src="back-end/images/teddy_3.jpg" alt="Couple d'oursons en peluche marron, dont l'un a un coeur cousu sur le ventre">
                         <figcaption class="card_body">
                             <div class="card_content">
                                 <h2 class="card_title">Lenny and Carl</h2>
-                            </div>
-                            <div class="card_content">
-                                <h2 class="card_price"> 59.00 €</h2>
+                                <h3 class="card_price"> 59.00 €</h3>
                             </div>
                             <p class="card_description">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -98,15 +96,13 @@
                         </figcaption>
                     </figure>
                 </a>
-                <a class="card" href="#">
-                    <figure>
+                <a href="#">
+                    <figure class="card">
                         <img class="card_img" src="back-end/images/teddy_4.jpg" alt="Ourson en peluche roux avec un pull bleu">
                         <figcaption class="card_body">
                             <div class="card_content">
                                 <h2 class="card_title">Gustav</h2>
-                            </div>
-                            <div class="card_content">
-                                <h2 class="card_price">45.00 €</h2>
+                                <h3 class="card_price">45.00 €</h3>
                             </div>
                             <p class="card_description">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -115,15 +111,13 @@
                         </figcaption>
                     </figure>
                 </a>
-                <a class="card" href="#">
-                    <figure>
+                <a href="#">
+                    <figure class="card">
                         <img class="card_img" src="back-end/images/teddy_5.jpg" alt="Ourson en peluche beige, vu de dos">
                         <figcaption class="card_body">
                             <div class="card_content">
                                 <h2 class="card_title">Garfunkel</h2>
-                            </div>
-                            <div class="card_content">
-                                <h2 class="card_price">55.00 €</h2>
+                                <h3 class="card_price">55.00 €</h3>
                             </div>
                             <p class="card_description">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -147,12 +141,13 @@
                 <li class="nav_item">
                   <a class="nav_link" href="mailto:contact@orinico.com"title="Contact">Contact</a>
                 </li>
-                <li>
-                    <a href="#" title="mentions légales">Mentions Légales</a>
+                <li class="nav_item">
+                    <a class= "nav_link" href="#" title="mentions légales">Mentions Légales</a>
                 </li>
               </ul>
+              <p class="copyright">Orinoco © 2021</p>
         </nav>
-        <p class="copyright">Orinoco © 2021</p>
+      
         
     </footer>
   </body>
