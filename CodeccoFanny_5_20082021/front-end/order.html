@@ -19,12 +19,12 @@
 
     <!-- Twitter Cards -->
 
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
 
     <script src="front-end/js/index.js" defer></script>
     </head>
 <body>
-<header>
+<header class="bg-light">
     <nav class="container main-nav">
         <a href="/index.html">
             <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
@@ -40,23 +40,28 @@
     </nav>
 </header>
 <main>
-<section class="container infos">
-<h2> Commande validée </h2>
-<p> Merci de votre achat sur notre site !<br> Votre commande a bien été prise en compte.</p>
-<p>N° d'identifiant : </p>
-<p>Votre facture vous sera transmise par mail à :</p>
-<p>Votre commande sera envoyée à l'adresse suivante :</p>
+  <h2 class="order_title bg-light"> Commande validée </h2>
+<section class="container infos ">
+
+<p class="center"> Merci de votre achat sur notre site !<br> Votre commande a bien été prise en compte.</p>
+<div class="ital infos">
+  <p >N° d'identifiant : </p>
+  <p >Votre facture vous sera transmise par mail à :</p>
+  <p >Votre commande sera envoyée à l'adresse suivante :</p>
+</div>
+
 </section>
+<h2 class="order_title bg-light">récapitulatif de commande</h2>
 <section class="container recap">
-    <h2>récapitulatif de commande</h2>
-    <div class="container container_table">
+  
+    <div class="container_table">
         <table class="table">
-            <thead>
+            <thead class="bg-light">
               <tr>
                 <th scope ="col">Produit</th>          
                 <th scope ="col">Quantité</th>
                 <th scope ="col">Prix</th>
-                <th scope ="col">Sous-total</th>
+                <th scope ="col">Total</th>
               </tr>
             </thead>
             <tbody id="CartProducts">
@@ -75,11 +80,11 @@
           </table>
     </div>
 </section>
-<div class="container">
+<div class=" print container">
     <button id="print" class="btn" aria-label="imprimer votre commande" type="submit">Imprimer la commande</button>
 </div>
 </main>
-<footer>
+<footer class="bg-light">
   <nav class="secondary-nav">
     <ul class="nav_list">
         <li class="nav_item">
