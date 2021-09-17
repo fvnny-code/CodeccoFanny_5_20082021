@@ -24,17 +24,17 @@
     <script src="front-end/js/index.js" defer></script>
     </head>
 <body>
-<header class="bg-light">
+<header class="bg--light">
     <nav class="container main-nav">
         <a href="/index.html">
             <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
         </a>
-        <ul class="nav_list">
-          <li class="nav_item">
-            <a class="nav_link" aria-current="page" href="/index.html">Accueil</a>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" aria-current="page" href="/index.html">Accueil</a>
           </li>
-          <li class="nav_item">
-            <a class="nav_link" href="front-end/panier.html">Panier</a>
+          <li class="nav__item">
+            <a class="nav__link" href="front-end/panier.html">Panier</a>
           </li>
         </ul>
       </nav>
@@ -103,35 +103,35 @@
   </section>
   <!-- Formulaire -->
   <section id="orderForm" class="container">
-    <h2 class="cart-title">Passer commande</h2>
+    <h2 class="cart__title">Passer commande</h2>
     <p class="center"><em>(tous les champs sont requis)</em></p>
 
-    <div class="container container_form">
+    <div class="container container__form">
       <form id="orderFormValidation">
         <div class="form flex-col"> 
-          <label class="form_label">Prénom</label>
-          <input id="firstName" class="form_input" aria-label="Prénom" type="text" placeholder="votre prénom" required="">
+          <label class="form__label">Prénom</label>
+          <input id="firstName" class="form__input" aria-label="Prénom" type="text" placeholder="votre prénom" required="">
         </div>
         <div class="form flex-col">
-          <label class="form_label">Nom</label>
-          <input id="lastName" class="form_input" aria-label="nom" type="text" placeholder="votre nom" required="">
+          <label class="form__label">Nom</label>
+          <input id="lastName" class="form__input" aria-label="nom" type="text" placeholder="votre nom" required="">
         </div>
         <div class="form flex-col">
-          <label class="form_label">Email</label>
-          <input id="email" class="form_input" aria-label="email" type="text" placeholder="ex : orinico@mail.com" required="">
+          <label class="form__label">Email</label>
+          <input id="email" class="form__input" aria-label="email" type="text" placeholder="ex : orinico@mail.com" required="">
         </div>
         <div class="form flex-col">
-          <label class="form_label">Adresse</label>
-          <input id="address" class="form_input" aria-label="adresse" type="text" placeholder="numéro, voie, code postal" required="">
+          <label class="form__label">Adresse</label>
+          <input id="address" class="form__input" aria-label="adresse" type="text" placeholder="numéro, voie, code postal" required="">
         </div>
         <div class="form flex-col">
-          <label class="form_label">Ville</label>
-          <input id="city" class="form_input" aria-label="ville" type="text" placeholder="ville" required="">
+          <label class="form__label">Ville</label>
+          <input id="city" class="form__input" aria-label="ville" type="text" placeholder="ville" required="">
         </div>
       </form>
         
           <input id="terms" aria-label="valider les conditions générales de vente" type="checkbox" value="" required="">
-          <label class="terms-check">Accepter les termes et conditions générales de vente</label>
+          <label class="terms--check" >Accepter les termes et conditions générales de vente</label>
        
         <div class="form container">
           <button id="order" class="btn" aria-label="procéder au paiement" type="submit">Procéder au paiement</button>
@@ -145,17 +145,17 @@
  
 
 </main>
-<footer class="bg-light">
+<footer class="bg--light">
   <nav class="secondary-nav">
-    <ul class="nav_list">
-        <li class="nav_item">
-          <a class="nav_link" href="../index.html" title="Accueil">Accueil</a>
+    <ul class="nav__list">
+        <li class="nav__item">
+          <a class="nav__link" href="../index.html" title="Accueil">Accueil</a>
         </li>
-        <li class="nav_item">
-          <a class="nav_link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
+        <li class="nav__item">
+          <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
         </li>
-        <li class="nav_item">
-            <a class= "nav_link" href="#" title="mentions légales">Mentions Légales</a>
+        <li class="nav__item">
+            <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
         </li>
       </ul>
       <p class="copyright">Orinoco © 2021</p>

@@ -24,23 +24,23 @@
     <script src="front-end/js/index.js" defer></script>
     </head>
 <body>
-<header class="bg-light">
+<header class="bg--light">
     <nav class="container main-nav">
         <a href="/index.html">
             <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
         </a>
-        <ul class="nav_list">
-          <li class="nav_item">
-            <a class="nav_link" aria-current="page" href="/index.html">Accueil</a>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" aria-current="page" href="/index.html">Accueil</a>
           </li>
-          <li class="nav_item">
-            <a class="nav_link" href="/front-end/panier.html">Panier</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/front-end/panier.html">Panier</a>
           </li>
         </ul>
     </nav>
 </header>
 <main>
-  <h2 class="order_title bg-light"> Commande validée </h2>
+  <h2 class="order__title bg--light"> Commande validée </h2>
 <div class="container infos ">
 
 <p class="center"> Merci de votre achat sur notre site !<br> Votre commande a bien été prise en compte.</p>
@@ -51,12 +51,12 @@
 </div>
 
 </div>
-<h2 class="order_title bg-light">récapitulatif de commande</h2>
+<h2 class="order__title bg--light">récapitulatif de commande</h2>
 <div class="container recap">
   
-    <div class="container_table">
+    <div class="container__table">
         <table class="table">
-            <thead class="bg-light">
+            <thead class="bg--light">
               <tr>
                 <th scope ="col">Produit</th>          
                 <th scope ="col">Quantité</th>
@@ -72,7 +72,7 @@
                 <td id="productPrice"></td> <!-- prix  -->
                 <td id="totalProductPrice"></td> <!-- sous-total  -->
               </tr>
-              <tr class="bg-light">
+              <tr class="bg--light">
                 <td colspan="3">Total</td>
                 <td colspan="1"></td>
               </tr>
@@ -84,17 +84,17 @@
     <button id="print" class="btn" aria-label="imprimer votre commande" type="submit">Imprimer la commande</button>
 </div>
 </main>
-<footer class="bg-light">
+<footer class="bg--light">
   <nav class="secondary-nav">
-    <ul class="nav_list">
-        <li class="nav_item">
-          <a class="nav_link" href="../index.html" title="Accueil">Accueil</a>
+    <ul class="nav__list">
+        <li class="nav__item">
+          <a class="nav__link" href="../index.html" title="Accueil">Accueil</a>
         </li>
-        <li class="nav_item">
-          <a class="nav_link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
+        <li class="nav__item">
+          <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
         </li>
-        <li class="nav_item">
-            <a class= "nav_link" href="#" title="mentions légales">Mentions Légales</a>
+        <li class="nav__item">
+            <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
         </li>
       </ul>
       <p class="copyright">Orinoco © 2021</p>
