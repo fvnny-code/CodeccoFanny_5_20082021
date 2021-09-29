@@ -17,10 +17,10 @@ function getTeddyData(teddyId){
     })
     .then ((teddyData)=>{
         return teddyData;
-    });
-    // .catch((error)=>{
-    //     alert("La connexion au serveur n'a pu être effectuée. Veuillez essayer plus tard.")
-    // });
+    })
+    .catch((error) =>{
+        alert("La connexion au serveur n'a pu être effectuée. veuillez réessayer un peu plus tard...")
+    })
 }
 
 function displayProduct(teddy) {

@@ -20,9 +20,9 @@ function getProducts(){
     .then ((teddies)=>{
         return teddies;
     })
-    // .catch((error) =>{
-    //     alert("La connexion au serveur n'a pu être effectuée. veuillez réessayer un peu plus tard...")
-    // })
+    .catch((error) =>{
+        alert("La connexion au serveur n'a pu être effectuée. veuillez réessayer un peu plus tard...")
+    })
 }
 // Affichage des produits
 function displayProduct(teddy){
