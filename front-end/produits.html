@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="/styles.css" />
 
-    <script src="front-end/js/index.js" defer></script>
+    <script src="./js/produits.js" defer></script>
     </head>
 <body>
 <header class="bg--light">
@@ -42,27 +42,21 @@
 <main>
 <section id="product" class="container">
     <figure class="card">
-      <img class="card__img" src="../back-end/images/teddy_1.jpg" alt="Ourson en peluche marron">
+      <img class="card__img" src=" " alt="Ourson en peluche">
    
       <figcaption class="card__body container">
         <div class="card__content">
-          <h1 class="card__title">"Norbert"</h1>
-          <p class="card__description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <h1 class="card__title"></h1>
+          <p class="card__description"></p> 
+          <p class="card__price"></p>
         </div>
         <div class="card__content">
           <h2> Personnalisez votre produit</h2>
           <div id="productColors" class="grid container">
-            <div class="productColor" style="background-color: tan;">
-             
-            </div>
-            <div class="productColor" style="background-color: chocolate;"></div>
-            <div class="productColor" style="background-color: black;"></div>
-            <div class="productColor" style="background-color: white"></div>
+            <template class="productColor" style="background-color: tan;"></template>
           </div>
         </div>
-        <button id="addToCart" class="btn" aria-label="ajouter au panier" type="submit">Ajouter au panier pour <span id="productPrice"></span>
+        <button id="addToCart" class="btn" aria-label="ajouter au panier" type="submit">Ajouter au panier 
        </button>
       </figcaption>
     </figure>

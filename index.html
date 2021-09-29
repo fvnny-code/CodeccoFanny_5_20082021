@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- fonts -->
-    <style> 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
     </style>
 
     <title>Accueil - Orinoco</title>
@@ -19,16 +19,18 @@
 
     <!-- Twitter Cards -->
 
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
 
-    <script src="front-end/js/index.js" defer></script>
+    <script src="./front-end/js/index.js" defer></script>
   </head>
   <body>
-
     <header class="bg--light">
       <nav class="container main-nav">
         <a href="index.html">
-            <img src="back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+          <img
+            src="back-end/images/orinoco-logo.png"
+            alt="logo du site Orinoco"
+          />
         </a>
         <ul class="nav__list">
           <li class="nav__item">
@@ -36,111 +38,52 @@
           </li>
         </ul>
       </nav>
-
     </header>
 
     <main class="main">
-
-        <section class="container presentation">
-            <h1 class="main__title">Bienvenue sur Orinoco</h1>
-            <p>Retrouvez notre collection d'oursons en peluche personnalisables</p>       
-        </section>
-        <section class="container products">
-            <div class="cards">
-               
-                    <figure class="card">
-                        <img class="card__img" src="back-end/images/teddy_1.jpg" alt="Ourson en peluche marron">
-                        <figcaption class="card__body">
-                            <div class="card__content">
-                                <h2 class="card__title">Norbert</h2>
-                                <h3 class="card__price">29.00 €</h3>
-                            </div>
-                            <p class="card__description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <a class="btn" href="">Adoptez-moi !</a>
-                        </figcaption>
-                    </figure>
-                
-                    <figure class="card">
-                        <img class="card_img" src="back-end/images/teddy_2.jpg" alt="Ourson en peluche beige">
-                        <figcaption class="card_body">
-                            <div class="card_content">
-                                <h2 class="card_title">Arnold</h2>
-                                <h3 class="card_price">39.00 €</h3>
-                            </div>
-                            <p class="card_description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <a class="btn" href="">Adoptez-moi !</a>
-                        </figcaption>
-                    </figure>
-               
-                    <figure class="card">
-                        <img class="card_img" src="back-end/images/teddy_3.jpg" alt="Couple d'oursons en peluche marron, dont l'un a un coeur cousu sur le ventre">
-                        <figcaption class="card_body">
-                            <div class="card_content">
-                                <h2 class="card_title">Lenny and Carl</h2>
-                                <h3 class="card_price"> 59.00 €</h3>
-                            </div>
-                            <p class="card_description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <a class="btn" href="">Adoptez-moi !</a>
-                        </figcaption>
-                    </figure>
-                
-                    <figure class="card">
-                        <img class="card_img" src="back-end/images/teddy_4.jpg" alt="Ourson en peluche roux avec un pull bleu">
-                        <figcaption class="card_body">
-                            <div class="card_content">
-                                <h2 class="card_title">Gustav</h2>
-                                <h3 class="card_price">45.00 €</h3>
-                            </div>
-                            <p class="card_description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <a class="btn" href="">Adoptez-moi !</a>
-                        </figcaption>
-                    </figure>
-                
-                    <figure class="card">
-                        <img class="card_img" src="back-end/images/teddy_5.jpg" alt="Ourson en peluche beige, vu de dos">
-                        <figcaption class="card_body">
-                            <div class="card_content">
-                                <h2 class="card_title">Garfunkel</h2>
-                                <h3 class="card_price">55.00 €</h3>
-                            </div>
-                            <p class="card_description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <a class="btn" href="">Adoptez-moi !</a>
-                        </figcaption>
-                    </figure>
-               
-            </div>
-        </section>
-
+      <section class="container presentation">
+        <h1 class="main__title">Bienvenue sur Orinoco</h1>
+        <p>Retrouvez notre collection d'oursons en peluche personnalisables</p>
+      </section>
+      <section class="container products" id="containerProduct">
+        <template id="templateProduct" class="cards">
+          <figure class="card">
+            <img class="card__img" src=" " alt="Ourson en peluche" />
+            <figcaption class="card__body">
+              <div class="card__content">
+                <h2 class="card__title"></h2>
+                <h3 class="card__price"></h3>
+              </div>
+              <p class="card__description"></p>
+              <a class="btn" href="./front-end/produits.html">Adoptez-moi !</a>
+            </figcaption>
+          </figure>
+        </template>
+      </section>
     </main>
 
     <footer class="bg--light">
-
-        <nav class="secondary-nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                  <a class="nav__link" href="index.html" title="Accueil">Accueil</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
-                </li>
-                <li class="nav__item">
-                    <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
-                </li>
-              </ul>
-              <p class="copyright">Orinoco © 2021</p>
-        </nav>
-      
-        
+      <nav class="secondary-nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="index.html" title="Accueil">Accueil</a>
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link"
+              href="mailto:contact@orinico.com"
+              title="Contact"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#" title="mentions légales"
+              >Mentions Légales</a
+            >
+          </li>
+        </ul>
+        <p class="copyright">Orinoco © 2021</p>
+      </nav>
     </footer>
   </body>
 </html>
