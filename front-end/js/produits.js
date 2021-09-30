@@ -1,16 +1,23 @@
+
 (async function(){
+    
     const teddyId = getTeddyId();
+    
     const teddyData = await  getTeddyData(teddyId);
+    
   
     displayProduct(teddyData);
 }) ()
 
 function getTeddyId(){
-    return new URL (window.location.href).searchParams.get("id")
+    // return new URL (window.location.href).searchParams.get("id")
+    let params = (new URL(document.location)).searchParams;
+    let id = params.get('id');
+    return id;
 }
 
 function getTeddyData(teddyId){
-    return fetch("http://localhost:3000/api/teddies/${teddyId}")
+    return fetch(`http://localhost:3000/api/teddies/${teddyId}`)
     .then ((response) => {
         return response.json();
     
