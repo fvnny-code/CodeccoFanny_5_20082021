@@ -34,9 +34,8 @@ function displayProduct(teddy) {
  
 document.querySelector(".card__img").src = teddy.imageUrl;
 document.querySelector(".card__title").textContent = teddy.name;
+document.querySelector(".card__description").textContent = teddy.description;
 document.querySelector(".card__price").textContent = `${teddy.price / 100}.00 €`;
-
-
 
 }
 

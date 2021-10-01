@@ -30,6 +30,7 @@ h1 {
 }
 h2, h3 {
   margin-top : 0;
+
 }
 
 /* margins & alignments */
@@ -66,24 +67,20 @@ a,
 }
 
 .btn {
-  /* display: inline-block; */
-  /* background: #99e2d0; */
-  /* color: #1b6150; */
-  
   text-transform: uppercase;
   text-align: center;
+  font-size: .9rem;
   background: linear-gradient(#ffb3e9, #bb95e9);
   border-radius: 2rem;
   box-shadow: 0 0.5rem 0.5rem rgba(10, 10, 10, 0.329);
+  
   padding: 0.8em;
-  margin-top: 1em;
-  margin: auto;
-  max-width: 15rem;
+  margin: 1rem auto;
+  max-width: 10rem;
 }
 .btn:hover,
 .btn:focus,
 .productColor:hover {
-  /* opacity: 0.75; */
   transform: scale(1.1);
   transition: all 300ms;
   box-shadow: 0 1rem 2rem rgba(20, 20, 20, 0.8);
@@ -91,20 +88,26 @@ a,
  
 }
 .btn--validate{
-  background:#99e2d0; ;
+  background: darkslategray;
+  color : white;
 }
 .btn--validate:hover{
-  color:#ca2456;
+  color: #99e2d0;
+  
 }
 .btn--danger{
   background: #ca2456;
   color: white;
 }
+.btn--back {
+  background: dimgrey;
+  color: white;
+}
 
 button {
-  border :none;
- 
+  border :none; 
 }
+
 /** container & general tags **/
 
 .container {
@@ -219,6 +222,19 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-line;
+  margin-top: .5rem;
+}
+.card__price {
+  font-weight: bold;
+}
+
+.card__form {
+  margin-bottom: 1rem;
+  padding: .5rem;
+}
+.card__btn {
+  display: flex;
+  justify-content: space-between;
 }
 
 /** Table **/

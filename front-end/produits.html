@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- fonts -->
-  <style> 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+    <!-- fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
     </style>
-    
+
     <title>Produit - Orinoco</title>
     <meta name="title" content="Produit - Orinoco" />
     <meta
@@ -22,62 +22,95 @@
     <link rel="stylesheet" href="/styles.css" />
 
     <script src="./js/produits.js" defer></script>
-    </head>
-<body>
-<header class="bg--light">
-    <nav class="container main-nav">
+  </head>
+  <body>
+    <header class="bg--light">
+      <nav class="container main-nav">
         <a href="/index.html">
-            <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+          <img
+            src="/back-end/images/orinoco-logo.png"
+            alt="logo du site Orinoco"
+          />
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" aria-current="page" href="/index.html">Accueil</a>
+            <a class="nav__link" aria-current="page" href="/index.html"
+              >Accueil</a
+            >
           </li>
           <li class="nav__item">
             <a class="nav__link" href="/front-end/panier.html">Panier</a>
           </li>
         </ul>
       </nav>
-</header>
-<main>
-<section id="product" class="container">
-    <figure class="card">
-      <img class="card__img" src=" " alt="Ourson en peluche">
-   
-      <figcaption class="card__body container">
-        <div class="card__content">
-          <h1 class="card__title"></h1>
-          <p class="card__description"></p> 
-          <p class="card__price"></p>
-        </div>
-        <div class="card__content">
+    </header>
+    <main>
+      <section id="product" class="container">
+        <figure class="card">
+          <img class="card__img" src=" " alt="Ourson en peluche" />
+
+          <figcaption class="card__body container">
+            <div class="card__content">
+              <h1 class="card__title"></h1>
+              <p class="card__description"></p>
+              <p class="card__price"></p>
+            </div>
+            <!-- <div class="card__content">
           <h2> Personnalisez votre produit</h2>
           <div id="productColors" class="grid container">
             <template class="productColor" style="background-color: tan;"></template>
           </div>
-        </div>
-        <button id="addToCart" class="btn" aria-label="ajouter au panier" type="submit">Ajouter au panier 
-       </button>
-      </figcaption>
-    </figure>
-</section>
-</main>
-<footer class="bg--light">
-  <nav class="secondary-nav">
-    <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link" href="../index.html" title="Accueil">Accueil</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
-        </li>
-        <li class="nav__item">
-            <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
-        </li>
-      </ul>
-      <p class="copyright">Orinoco © 2021</p>
-</nav>
-</footer>
-
-
-</body>
+        </div> -->
+            <div class="card__form">
+              <label for="quantity">Quantité :</label>
+              <input
+                class="teddyQuantity"
+                type="number"
+                name="teddyQuantity"
+                value="1"
+                min="1"
+              />
+            </div>
+            <div class="card__form">
+              <label for="color--select">Couleur :</label>
+              <select name="teddyColor" id="color--select"></select>
+            </div>
+            <div class="card__btn">
+              <a href="../index.html">
+                <button class="btn btn--back" aria-label="retour à l'accueil">Retour à l'accueil</button>
+              </a>
+              <a href="#">
+                <button id="addToCart" class="btn btn--validate" aria-label="ajouter au panier" type="submit">Ajouter au panier</button>
+              </a>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+    <footer class="bg--light">
+      <nav class="secondary-nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../index.html" title="Accueil"
+              >Accueil</a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link"
+              href="mailto:contact@orinico.com"
+              title="Contact"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#" title="mentions légales"
+              >Mentions Légales</a
+            >
+          </li>
+        </ul>
+        <p class="copyright">Orinoco © 2021</p>
+      </nav>
+    </footer>
+  </body>
+</html>
