@@ -12,7 +12,7 @@
 //appel API
 function getProducts(){
 
-    return fetch("http://localhost:3000/api/teddies")
+    return fetch(teddyAPI)
 
     .then ((response)=>{
         return response.json()

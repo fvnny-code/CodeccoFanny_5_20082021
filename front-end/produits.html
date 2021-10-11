@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/styles.css" />
 
     <script src="./js/produits.js" defer></script>
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
     <header class="bg--light">
@@ -55,27 +56,17 @@
               <p class="card__description"></p>
               <p class="card__price"></p>
             </div>
-            <div class="card__form">
-              <label for="quantity">Quantité :</label>
-              <input
-                class="teddyQuantity"
-                type="number"
-                name="teddyQuantity"
-                value="1"
-                min="1"
-              />
-            </div>
-            <div class="card__form">
-              <label for="color--select">Couleur :</label>
-              <select name="teddyColor" id="color--select" type="text"></select>
+            <div class="choice">
+              
             </div>
             <div class="card__btn">
               <a href="../index.html">
                 <button class="btn btn--back" aria-label="retour à l'accueil">Retour à l'accueil</button>
               </a>
-              <a href="#">
-                <button id="addToCart" class="btn btn--validate" aria-label="ajouter au panier" type="submit">Ajouter au panier</button>
-              </a>
+            
+                <button id="addToCartBtn" class="btn btn--validate" aria-label="ajouter au panier" type="submit">Ajouter au panier</button>
+              
+
             </div>
           </figcaption>
         </figure>

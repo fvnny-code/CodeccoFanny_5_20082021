@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- fonts -->
-  <style> 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+    <!-- fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
     </style>
 
     <title>Panier - Orinoco</title>
@@ -20,147 +20,157 @@
     <!-- Twitter Cards -->
 
     <link rel="stylesheet" href="../styles.css" />
+    <script src="https://kit.fontawesome.com/a31e139e01.js" crossorigin="anonymous"></script>
+    <script src="../front-end/js/panier.js" defer></script>
+    <script src="../front-end/js/script.js" defer></script>
 
-    <script src="front-end/js/index.js" defer></script>
-    </head>
-<body>
-<header class="bg--light">
-    <nav class="container main-nav">
+  </head>
+  <body>
+    <header class="bg--light">
+      <nav class="container main-nav">
         <a href="/index.html">
-            <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+          <img
+            src="/back-end/images/orinoco-logo.png"
+            alt="logo du site Orinoco"
+          />
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" aria-current="page" href="/index.html">Accueil</a>
+            <a class="nav__link" aria-current="page" href="/index.html"
+              >Accueil</a
+            >
           </li>
           <li class="nav__item">
             <a class="nav__link" href="front-end/panier.html">Panier</a>
           </li>
         </ul>
       </nav>
-</header>
-<main>
-  <!-- Panier vide -->
-  <!-- <section id="emptyCart" class="container">
-    <div class="container cta">
-      <h1 class="cart-title">
-        Il semblerait que votre panier soit vide.<br>
-        Pour commencer vos achats ...
-      </h1>
-      <a href="/index.html" class="btn" aria-label="lien pour commencer vos achats" role="button">
-      C'est par ici</a>
-    </div>
-  </section> -->
-  <!-- Tableau -->
-  <section id="cart" class="container">
-    <h2 class="cart-title">Contenu du panier</h2>
-    <div class="container container_table">
-      <table class="table">
-        <thead class="bg-light">
-          <tr>
-            <th scope ="col">Produit</th>          
-            <th scope ="col">Quantité</th>
-            <th scope ="col">Prix</th>
-            <th scope ="col">Total</th>
-          </tr>
-        </thead>
-        <tbody id="CartProducts">
-          <!-- Insertion panier.js -->
-          <tr>
-            <td></td> <!-- produit -->
-            <td>
-              <form class="select-quantity" action="select">
-                <select name="quantity" aria-label="sélectionner la quantité">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </form>
-            </td> <!-- quantité  -->
-            <td id="productPrice"></td> <!-- prix  -->
-            <td id="totalProductPrice"></td> <!-- sous-total  -->
-          </tr>
-          <tr class="bg-light">
-            <td colspan="3">Total</td>
-            <td colspan="1"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div id="cartValidation" class="container">
-      <button  class="btn btn_validate" aria-label="valider votre panier" type="submit">Valider le panier</button>
-      <button class="btn btn_danger" aria-label="vider votre panier" type="button">Vider le panier</button>
-    </div>
-      
+    </header>
+    <main>
+      <!-- Panier vide -->
   
-  </section>
-  <!-- Formulaire -->
-  <section id="orderForm" class="container">
-    <h2 class="cart__title">Passer commande</h2>
-    <p class="center"><em>(tous les champs sont requis)</em></p>
-
-    <div class="container container__form">
-      <form id="orderFormValidation">
-        <div class="form flex-col"> 
-          <label class="form__label">Prénom</label>
-          <input id="firstName" class="form__input" aria-label="Prénom" type="text" placeholder="votre prénom" required="">
+      <!-- Tableau panier -->
+      <section id="cart" class="container">
+        <h2 class="cart-title">Contenu du panier</h2>
+        <div class="container container__table"> 
         </div>
-        <div class="form flex-col">
-          <label class="form__label">Nom</label>
-          <input id="lastName" class="form__input" aria-label="nom" type="text" placeholder="votre nom" required="">
+        <div id="cartClear"> 
         </div>
-        <div class="form flex-col">
-          <label class="form__label">Email</label>
-          <input id="email" class="form__input" aria-label="email" type="text" placeholder="ex : orinico@mail.com" required="">
+        <div id="continueShopping">
         </div>
-        <div class="form flex-col">
-          <label class="form__label">Adresse</label>
-          <input id="address" class="form__input" aria-label="adresse" type="text" placeholder="numéro, voie, code postal" required="">
+      </section>
+      <!-- Formulaire -->
+      <section id="orderForm" class="container">
+        <h2 class="cart__title">Passer commande</h2>
+        <p class="center"><em>(tous les champs sont requis)</em></p>
+
+        <div class="container container__form">
+          <form id="orderFormValidation">
+            <div class="form flex-col">
+              <label class="form__label">Prénom</label>
+              <input
+                id="firstName"
+                class="form__input"
+                aria-label="Prénom"
+                type="text"
+                placeholder="votre prénom"
+                required=""
+              />
+            </div>
+            <div class="form flex-col">
+              <label class="form__label">Nom</label>
+              <input
+                id="lastName"
+                class="form__input"
+                aria-label="nom"
+                type="text"
+                placeholder="votre nom"
+                required=""
+              />
+            </div>
+            <div class="form flex-col">
+              <label class="form__label">Email</label>
+              <input
+                id="email"
+                class="form__input"
+                aria-label="email"
+                type="text"
+                placeholder="ex : orinico@mail.com"
+                required=""
+              />
+            </div>
+            <div class="form flex-col">
+              <label class="form__label">Adresse</label>
+              <input
+                id="address"
+                class="form__input"
+                aria-label="adresse"
+                type="text"
+                placeholder="numéro, voie, code postal"
+                required=""
+              />
+            </div>
+            <div class="form flex-col">
+              <label class="form__label">Ville</label>
+              <input
+                id="city"
+                class="form__input"
+                aria-label="ville"
+                type="text"
+                placeholder="ville"
+                required=""
+              />
+            </div>
+          </form>
+
+          <input
+            id="terms"
+            aria-label="valider les conditions générales de vente"
+            type="checkbox"
+            value=""
+            required=""
+          />
+          <label class="terms--check"
+            >Accepter les termes et conditions générales de vente</label
+          >
+
+          <div class="form container">
+            <button
+              id="order"
+              class="btn"
+              aria-label="procéder au paiement"
+              type="submit"
+            >
+              Procéder au paiement
+            </button>
+          </div>
         </div>
-        <div class="form flex-col">
-          <label class="form__label">Ville</label>
-          <input id="city" class="form__input" aria-label="ville" type="text" placeholder="ville" required="">
-        </div>
-      </form>
-        
-          <input id="terms" aria-label="valider les conditions générales de vente" type="checkbox" value="" required="">
-          <label class="terms--check" >Accepter les termes et conditions générales de vente</label>
-       
-        <div class="form container">
-          <button id="order" class="btn" aria-label="procéder au paiement" type="submit">Procéder au paiement</button>
-        </div>
-      
-      
-
-    </div>
-
-  </section>
- 
-
-</main>
-<footer class="bg--light">
-  <nav class="secondary-nav">
-    <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link" href="../index.html" title="Accueil">Accueil</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
-        </li>
-        <li class="nav__item">
-            <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
-        </li>
-      </ul>
-      <p class="copyright">Orinoco © 2021</p>
-</nav>
-</footer>
-
-
-</body>
+      </section>
+    </main>
+    <footer class="bg--light">
+      <nav class="secondary-nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../index.html" title="Accueil"
+              >Accueil</a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link"
+              href="mailto:contact@orinico.com"
+              title="Contact"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#" title="mentions légales"
+              >Mentions Légales</a
+            >
+          </li>
+        </ul>
+        <p class="copyright">Orinoco © 2021</p>
+      </nav>
+    </footer>
+  </body>
+</html>
