@@ -20,10 +20,12 @@
     <!-- Twitter Cards -->
 
     <link rel="stylesheet" href="../styles.css" />
-    <script src="https://kit.fontawesome.com/a31e139e01.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/a31e139e01.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="../front-end/js/panier.js" defer></script>
     <script src="../front-end/js/script.js" defer></script>
-
   </head>
   <body>
     <header class="bg--light">
@@ -36,29 +38,36 @@
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <img src="../back-end/images/icon-home.png" style="height: 40px;">
-            <a class="nav__link" aria-current="page" href="/index.html"
-              >Accueil</a
+            <a class="nav__link" aria-current="page" href="/index.html">
+              <img
+                src="../back-end/images/icon-home.png"
+                style="height: 40px"
+              />Accueil</a
             >
           </li>
           <li class="nav__item">
-            <img src="../back-end/images/icon-chariot.png" style="height: 40px;">
-            <a class="nav__link" href="front-end/panier.html">Panier</a>
+            <a class="nav__link" href="front-end/panier.html"
+              ><img
+                src="../back-end/images/icon-chariot.png"
+                style="height: 40px"
+              />Panier</a
+            >
           </li>
         </ul>
       </nav>
     </header>
     <main>
       <!-- Panier vide -->
-  
+
       <!-- Tableau panier -->
       <section id="cart" class="container">
         <h2 class="cart-title">Contenu du panier</h2>
-        <div class="container container__table"> 
-        </div>
+        <div class="container container__table"></div>
         <div id="continueShopping">
           <a href="../index.html">
-            <button class="btn btn--back" aria-label="continuer vos achats">Continuer vos achats</button>
+            <button class="btn btn--back" aria-label="continuer vos achats">
+              Continuer vos achats
+            </button>
           </a>
         </div>
       </section>
@@ -66,11 +75,10 @@
       <section id="orderValidation" class="container">
         <h2 class="cart__title">Passer commande</h2>
         <p class="center"><em>(tous les champs sont requis)</em></p>
-        
+
         <div class="container container__form">
-        <div class="error"></div>
+          <div class="error"></div>
         </div>
-        
       </section>
     </main>
     <footer class="bg--light">
