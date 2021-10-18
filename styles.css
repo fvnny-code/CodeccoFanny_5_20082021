@@ -450,11 +450,12 @@ margin-top: 1.5rem;
 @media (max-width: 805px){
   .main-nav a{
     margin: auto;
+   
   }
    .nav__list{
     width: 100%;
     padding: 0;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 
