@@ -20,7 +20,10 @@ if (cartStorage === null || cartStorage == 0) {
       </a>
      </div>
    </section>`;
+  
   displayCart.innerHTML = emptyCart;
+  // le bouton "continuer vous achats n'est pas affiché"
+  document.querySelector("#continueShopping").style.display = "none"
 
 } else {
   let tableCart = `
@@ -117,12 +120,7 @@ const clearCartBtn = `
 
 if (cartStorage !== null) {
   displayCart.insertAdjacentHTML("afterend", clearCartBtn);
-  let continueShoppingBtn = document.querySelector("#continueShopping");
-  continueShoppingBtn.innerHTML = `
-  <a href="../index.html">
-  <button class="btn btn--back" aria-label="continuer vos achats">Continuer vos achats</button>
-</a>
-  `;
+
 }
 const clearAllBtn = document.querySelector(".clearCart");
 // suppression de la clé CART dans le localStorage pour vider le panier
