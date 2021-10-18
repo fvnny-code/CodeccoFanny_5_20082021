@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- fonts -->
-      <style> 
-        @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
-        </style>
+    <!-- fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+    </style>
 
     <title>Commande - Orinoco</title>
     <meta name="title" content="Commande - Orinoco" />
@@ -21,56 +21,62 @@
 
     <link rel="stylesheet" href="../styles.css" />
 
-    <script src="front-end/js/index.js" defer></script>
-    </head>
-<body>
-<header class="bg--light">
-    <nav class="container main-nav">
+    <script src="../front-end/js/order.js" defer></script>
+  </head>
+  <body>
+    <header class="bg--light">
+      <nav class="container main-nav">
         <a href="/index.html">
-            <img src="/back-end/images/orinoco-logo.png" alt="logo du site Orinoco"/>
+          <img
+            src="../back-end/images/orinoco-logo2.png"
+            alt="logo du site Orinoco"
+          />
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" aria-current="page" href="/index.html">Accueil</a>
+            
+            <a class="nav__link" aria-current="page" href="/index.html"
+              ><img src="../back-end/images/icon-home.png" style="height: 40px;">Accueil</a
+            >
           </li>
           <li class="nav__item">
+            <img src="/back-end/images/icon-chariot.png" style="height: 40px;">
             <a class="nav__link" href="/front-end/panier.html">Panier</a>
           </li>
         </ul>
-    </nav>
-</header>
-<main>
-  <h2 class="order__title bg--light"> Commande validée </h2>
-<div class="container infos ">
-
-<p class="center"> Merci de votre achat sur notre site !<br> Votre commande a bien été prise en compte.</p>
-<div class="ital infos">
-  <p >N° d'identifiant : </p>
-  <p >Votre facture vous sera transmise par mail à :</p>
-  <p >Votre commande sera envoyée à l'adresse suivante :</p>
-</div>
-
-</div>
-<h2 class="order__title bg--light">récapitulatif de commande</h2>
-<div class="container recap">
-  
-    <div class="container__table">
-        <table class="table">
+      </nav>
+    </header>
+    <main>
+      <h2 class="order__title bg--light">Commande validée</h2>
+      <div class="container infos">
+        <p class="center">
+          Merci de votre achat sur notre site !
+          
+        </p>
+        <div id ="orderNumber" class=" infos">
+          <p class="orderNumber">Votre commande n° <span class ="ital"></span> </p> 
+          <p class="totalPrice">pour un  <span class="ital"></span> bien été prise en compte</p>
+          <p>Votre facture vous sera transmise par mail, et votre commande expédiée à votre adresse</p>
+        </div>
+      </div>
+      <!-- <h2 class="order__title bg--light">récapitulatif de commande</h2>
+      <div class="container recap">
+        <div class="container__table">
+          <table class="table">
             <thead class="bg--light">
               <tr>
-                <th scope ="col">Produit</th>          
-                <th scope ="col">Quantité</th>
-                <th scope ="col">Prix</th>
-                <th scope ="col">Total</th>
+                <th scope="col">Produit</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody id="CartProducts">
-              <!-- Insertion panier.js -->
               <tr>
-                <td></td> <!-- produit -->
-                <td></td> <!-- quantité  -->
-                <td id="productPrice"></td> <!-- prix  -->
-                <td id="totalProductPrice"></td> <!-- sous-total  -->
+                <td></td>
+                <td></td>
+                <td id="productPrice"></td>
+                <td id="totalProductPrice"></td>
               </tr>
               <tr class="bg--light">
                 <td colspan="3">Total</td>
@@ -78,28 +84,40 @@
               </tr>
             </tbody>
           </table>
-    </div>
-  </div>
-<div class=" print container">
-    <button id="print" class="btn" aria-label="imprimer votre commande" type="submit">Imprimer la commande</button>
-</div>
-</main>
-<footer class="bg--light">
-  <nav class="secondary-nav">
-    <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link" href="../index.html" title="Accueil">Accueil</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="mailto:contact@orinico.com" title="Contact">Contact</a>
-        </li>
-        <li class="nav__item">
-            <a class= "nav__link" href="#" title="mentions légales">Mentions Légales</a>
-        </li>
-      </ul>
-      <p class="copyright">Orinoco © 2021</p>
-</nav>
-</footer>
-
-
-</body>
+        </div>
+      </div> -->
+      <div class="container">
+        <a href="../index.html">
+          <button class="btn home" aria-label="retour à l'accueil" type="submit">
+          Retour à l'accueil
+          </button>
+      </a>
+      </div>
+    </main>
+    <footer class="bg--light">
+      <nav class="secondary-nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../index.html" title="Accueil"
+              >Accueil</a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link"
+              href="mailto:contact@orinico.com"
+              title="Contact"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#" title="mentions légales"
+              >Mentions Légales</a
+            >
+          </li>
+        </ul>
+        <p class="copyright">Orinoco | Commerce en ligne © 2021</p>
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -42,27 +42,20 @@ function displayProduct(teddyData) {
   document.querySelector(".card__title").textContent = teddyData.name;
   document.querySelector(".card__description").textContent =
     teddyData.description;
-  document.querySelector(".card__price").textContent = `${
-    teddyData.price / 100
-  }.00 €`;
-  document.querySelector(".choice").innerHTML += `<form class="card__form">
-    <label for="quantity">Quantité :</label>
-    <input class="teddyQuantity" type="number" name="teddyQuantity" value="1" min="1"/>
-   </form>
+  document.querySelector(".card__price").textContent = `${teddyData.price / 100}.00 €`;
+  document.querySelector(".choice").innerHTML += `
    <form class="card__form">
     <label for="color--select">Couleur :</label>
     <select name="teddyColor" id="color--select" type="text"></select>
    </form>`;
-
+  //Récupération de la balise select contenant les balises option qui correspondent à la couleur
+  const selectTag = document.querySelector("#color--select");
   // options de sélection de couleurs
   const selectColors = teddyData.colors;
 
-  //Récupération de la balise select contenant les balises option qui correspondent à la couleur
-  const selectTag = document.querySelector("#color--select");
   for (let i = 0; i < selectColors.length; i++) {
-    const option = document.createElement("option");
-    option.value = `${selectColors[i]}`;
-    option.innerHTML = `${selectColors[i]}`;
+    let option = document.createElement("option");
+    option.innerText = selectColors[i];
     selectTag.appendChild(option);
   }
 }
@@ -71,9 +64,9 @@ function displayProduct(teddyData) {
 
 function addToCart(teddyData) {
   // récupération du panier déjà existant dans le localStorage
-  let cart = JSON.parse(localStorage.getItem("CART")) || [];
+  
+  let cart = JSON.parse(localStorage.getItem("CART")) ||[];
 
-  console.log(cart);
 
   let teddyInCart = false;
   for (const currentTeddy of cart) {
@@ -83,20 +76,15 @@ function addToCart(teddyData) {
       break;
     }
   }
-
+  
   if (teddyInCart == false) {
     teddyData.quantity = 1;
     cart.push(teddyData);
   }
 
-  // console.log(teddyData);
-  //  if (teddyId.quantity >= 1){
-  //    teddyId.quantity ++;
-  //  } else{
-  //    teddyId.quantity =1;
-  //  }
+  
 
   // Sauvegarde du nouveau panier dans la localStorage
-  console.log(cart);
+  
   localStorage.setItem("CART", JSON.stringify(cart));
 }
