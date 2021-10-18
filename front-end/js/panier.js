@@ -21,9 +21,9 @@ if (cartStorage === null || cartStorage == 0) {
      </div>
    </section>`;
   displayCart.innerHTML = emptyCart;
+
 } else {
   let tableCart = `
-
   <table>
     <thead>
       <tr>
@@ -50,12 +50,14 @@ if (cartStorage === null || cartStorage == 0) {
         <td><button class="delete-item btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>  
       </tr>
      </tbody> 
+     
   
     `;
   }
 
   if (i === cartStorage.length) {
     displayCart.innerHTML = tableCart;
+
   }
 }
 
@@ -115,6 +117,12 @@ const clearCartBtn = `
 
 if (cartStorage !== null) {
   displayCart.insertAdjacentHTML("afterend", clearCartBtn);
+  let continueShoppingBtn = document.querySelector("#continueShopping");
+  continueShoppingBtn.innerHTML = `
+  <a href="../index.html">
+  <button class="btn btn--back" aria-label="continuer vos achats">Continuer vos achats</button>
+</a>
+  `;
 }
 const clearAllBtn = document.querySelector(".clearCart");
 // suppression de la clé CART dans le localStorage pour vider le panier
