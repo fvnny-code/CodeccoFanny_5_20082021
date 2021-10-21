@@ -1,328 +1,380 @@
-// récupérer les données du localStorage
+let storedArticles = JSON.parse(localStorage.getItem("newArticle"));
+console.log(storedArticles);
 
-let cartStorage = JSON.parse(localStorage.getItem("CART"));
+//création des éléments de la page panier.html
+const cartMain = document.querySelector("#cartPage");
+const emptyCartSection = document.querySelector("#emptyCart");
+// si le panier est vide
+if (storedArticles == null || storedArticles.length === 0) {
+  const emptyCartDiv = document.createElement("div");
+  emptyCartSection.appendChild(emptyCartDiv);
+  emptyCartDiv.className = " container center";
 
-console.log(cartStorage);
-
-// 1- AFFICHER DES PRODUITS DANS LE PANIER //
-
-const displayCart = document.querySelector(".container__table");
-
-if (cartStorage === null || cartStorage == 0) {
-  const emptyCart = `
-    <section id="emptyCart" class="container">
-     <div class="container cta">
-      <h2 class="cart-title">
-        Votre panier est tristement vide.<br>
-       </h2>
-       <a href="../index.html">
-        <button class="btn btn--back" aria-label="commencer vos achats">Commencer vos achats</button>
-      </a>
-     </div>
-   </section>`;
-  
-  displayCart.innerHTML = emptyCart;
-  // le bouton "continuer vous achats n'est pas affiché"
-  document.querySelector("#continueShopping").style.display = "none"
-
+  const emptyCartTitle = document.createElement("h3");
+  emptyCartDiv.appendChild(emptyCartTitle);
+  emptyCartTitle.className = "cart-title";
+  emptyCartTitle.textContent = "Votre panier est bien vide !";
 } else {
-  let tableCart = `
-  <table>
-    <thead>
-      <tr>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th>Couleur</th>
-        <th>Prix</th>
-        <th>Supprimer</th>
-      </tr>
-    </thead>
-       
-  `;
+  //Si le panier contient des articles
+  emptyCartSection.style.display = "none";
+  const cartSection = document.querySelector("#cart");
+  let i = 0;
+  for (storedArticle of storedArticles) {
+    const eachArticle = document.createElement("div");
+    cartSection.appendChild(eachArticle);
+    eachArticle.className = "cart__item";
 
-  for (i = 0; i < cartStorage.length; i++) {
-    tableCart += `
-   
-    <tbody class="productTable"> 
-      <tr>
-        <td class="productName">${cartStorage[i].name}</td>
-        <td class="productQuantity" >${cartStorage[i].quantity}</td>
-        <td class="productColor">${cartStorage[i].colors[i]} </td>
-        <td class="productPrice">${cartStorage[i].price / 100} €</td>
-       
-        <td><button class="delete-item btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>  
-      </tr>
-     </tbody> 
-     
-  
-    `;
+    const articleInCart = document.createElement("p");
+    eachArticle.appendChild(articleInCart);
+    articleInCart.textContent =
+      storedArticle.quantity +
+      " " +
+      storedArticle.articleName +
+      " , " +
+      storedArticle.articleColor;
+
+    const articlePriceDiv = document.createElement("div");
+    eachArticle.appendChild(articlePriceDiv);
+    articlePriceDiv.className = "article__price";
+    articlePriceDiv.id = i++;
+
+    const price = document.createElement("p");
+    articlePriceDiv.appendChild(price);
+    price.textContent = storedArticle.articlePrice + " €";
+
+    //création du bouton supprimer un article
+    const deleteArticleBtn = document.createElement("button");
+    articlePriceDiv.appendChild(deleteArticleBtn);
+    deleteArticleBtn.className = "btn--danger";
+    deleteArticleBtn.type = "submit";
+    deleteArticleBtn.title = "supprimer cet article ?";
+
+    const deleteBtnIcon = document.createElement("i");
+    deleteArticleBtn.appendChild(deleteBtnIcon);
+    deleteBtnIcon.className = "fas fa-trash-alt";
+  }
+  // récupération de l'article à supprimer
+  let deleteArticleBtn = document.querySelectorAll(".btn--danger");
+  for (let i = 0; i < deleteArticleBtn.length; i++) {
+    deleteArticleBtn[i].addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let id = event.target.closest(".article__price").id;
+      // suppression de l'article dans le localStorage
+      storedArticles.splice(id, 1);
+      // mise à jour du localStorage
+      localStorage.setItem("newArticle", JSON.stringify(storedArticles));
+      JSON.parse(localStorage.getItem("newArticle"));
+
+      alert("Cet article a bien été suprimé");
+      window.location.href = "panier.html";
+    });
   }
 
-  if (i === cartStorage.length) {
-    displayCart.innerHTML = tableCart;
-
+  // calcul du montant total
+  let calculPrice = [];
+  for (storedArticle of storedArticles) {
+    let article = storedArticle.articlePrice;
+    calculPrice.push(article);
   }
-}
 
-// Supprimer un article du panier
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  const totalPrice = calculPrice.reduce(reducer, 0);
+  console.log(totalPrice);
 
-let deleteItem = Array.from(document.querySelectorAll(".delete-item"));
-let updatedTab = [];
+  // affichage du prix total
+  const total = document.createElement("p");
+  cartSection.appendChild(total);
+  total.className = "total";
+  total.textContent = " Montant total de : " + totalPrice + " €";
 
-// selectionner l'id de l'article à supprimer
-for (let i = 0; i < deleteItem.length; i++) {
-  deleteItem[i].addEventListener("click", (event) => {
-    event.preventDefault();
+  // création d'un bouton vider le panier
 
-    deleteItem[i].parentElement.style.display = "none";
-    updatedTab = cartStorage;
-    // méthode splice() : retirer l'élément cliqué du uptdatedTab
-    updatedTab.splice([i], 1);
-    cartStorage = localStorage.setItem("CART", JSON.stringify(updatedTab));
+  const clearCartBtn = document.createElement("button");
+  cartSection.appendChild(clearCartBtn);
+  clearCartBtn.className = "btn btn--danger";
+  clearCartBtn.type = "button";
+  clearCartBtn.ariaLabel = "vider le panier";
 
-    // message de mise à jour du localStorage
-    alert("Ce produit a bien été retiré du panier");
-    window.location.reload();
+  const clearCartLink = document.createElement("a");
+  clearCartBtn.appendChild(clearCartLink);
+  clearCartLink.href = "panier.html";
+  clearCartLink.ariaLabel = "vider le panier";
+  clearCartLink.textContent = "Vider le panier";
+  clearCartLink.className = "clearCart__link";
+  clearCartLink.style.color = "white";
+
+  clearCartLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("newArticle");
+    alert("Votre panier a bien été vidé.");
+    window.location.href = "panier.html";
+  });
+
+  //création du formulaire
+  const containerForm = document.querySelector(".container__form");
+  const orderForm = document.createElement("form");
+  containerForm.appendChild(orderForm);
+  orderForm.className = "order__form";
+
+  //vérification de la validité des champs du formulaire //
+
+  //validité prénom, nom, ville
+  function validateString(value) {
+    return /^[a-zA-Z\-]+$/.test(value);
+  }
+  //validité adresse
+  function validateAddress(value) {
+    return /^[a-zA-Z0-9\s\,\''\-]*$/.test(value);
+  }
+  //validité code postal
+  function validatePostCode(value) {
+    return /^[0-9]{5}/g.test(value);
+  }
+  //validité email
+  function validateEmail(value) {
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+  }
+
+  // ajout du champs prénom
+  const divFirstName = document.createElement("div");
+  orderForm.appendChild(divFirstName);
+  divFirstName.className = "form flex-col";
+  const labelFirstName = document.createElement("label");
+  divFirstName.appendChild(labelFirstName);
+  labelFirstName.setAttribute("type", "text");
+  labelFirstName.textContent = "Prénom : ";
+
+  const inputFirstName = document.createElement("input");
+  divFirstName.appendChild(inputFirstName);
+  inputFirstName.setAttribute("type", "text");
+  inputFirstName.setAttribute("class", "form__input");
+  inputFirstName.setAttribute("aria-label", "prénom");
+  inputFirstName.setAttribute("value", "Fanny");
+  inputFirstName.placeholder = "Prénom";
+  inputFirstName.required = true;
+  //vérification
+  inputFirstName.addEventListener("change", (e) => {
+    if (validateString(inputFirstName.value)) {
+    } else {
+      alert("un prénom ne contient ni chiffre ni symbole");
+      e.preventDefault();
+    }
+  });
+
+  // ajout du champs nom
+  const divLastName = document.createElement("div");
+  orderForm.appendChild(divLastName);
+  divLastName.className = "form flex-col";
+  const labelLastName = document.createElement("label");
+  divLastName.appendChild(labelLastName);
+  labelLastName.setAttribute("type", "text");
+  labelLastName.textContent = "Nom : ";
+
+  const inputLastName = document.createElement("input");
+  divLastName.appendChild(inputLastName);
+  inputLastName.setAttribute("type", "text");
+  inputLastName.setAttribute("class", "form__input");
+  inputLastName.setAttribute("aria-label", "nom");
+  inputLastName.setAttribute("value", "Poui");
+  inputLastName.placeholder = "Nom";
+  inputLastName.required = true;
+  //vérification
+  inputLastName.addEventListener("change", (e) => {
+    if (validateString(inputLastName.value)) {
+    } else {
+      alert("un nom ne contient ni chiffre ni symbole");
+      e.preventDefault();
+    }
+  });
+
+  // ajout du champs adresse :
+  const divAddress = document.createElement("div");
+  orderForm.appendChild(divAddress);
+  divAddress.className = "form flex-col";
+  const labelAddress = document.createElement("label");
+  divAddress.appendChild(labelAddress);
+  labelAddress.setAttribute("type", "text");
+  labelAddress.textContent = "Adresse : ";
+
+  const inputAddress = document.createElement("input");
+  divAddress.appendChild(inputAddress);
+  inputAddress.setAttribute("type", "text");
+  inputAddress.setAttribute("class", "form__input");
+  inputAddress.setAttribute("aria-label", "adresse");
+  inputAddress.setAttribute("value", "2 rue des Troul");
+
+  inputAddress.placeholder = "Adresse";
+  inputAddress.required = true;
+  //vérification
+  inputAddress.addEventListener("change", (e) => {
+    if (validateAddress(inputAddress.value)) {
+    } else {
+      alert("un nom ne contient pas de symbole");
+      e.preventDefault();
+    }
+  });
+  // ajout du champs code postal :
+  const divPostCode = document.createElement("div");
+  orderForm.appendChild(divPostCode);
+  divPostCode.className = "form flex-col";
+  const labelPostCode = document.createElement("label");
+  divPostCode.appendChild(labelPostCode);
+  labelPostCode.setAttribute("type", "text");
+  labelPostCode.textContent = "Code Postal : ";
+
+  const inputPostCode = document.createElement("input");
+  divPostCode.appendChild(inputPostCode);
+  inputPostCode.setAttribute("type", "text");
+  inputPostCode.setAttribute("class", "form__input");
+  inputPostCode.setAttribute("aria-label", "code postal");
+  inputPostCode.setAttribute("value", "12345");
+  inputPostCode.placeholder = "Code Postal";
+  inputPostCode.required = true;
+  //vérification
+  inputPostCode.addEventListener("change", (e) => {
+    if (validatePostCode(inputPostCode.value)) {
+    } else {
+      alert("un code postal doit contenir 5 chiffres");
+      e.preventDefault();
+    }
+  });
+  // ajout du champs ville :
+  const divCity = document.createElement("div");
+  orderForm.appendChild(divCity);
+  divCity.className = "form flex-col";
+  const labelCity = document.createElement("label");
+  divCity.appendChild(labelCity);
+  labelCity.setAttribute("type", "text");
+  labelCity.textContent = "Ville : ";
+
+  const inputCity = document.createElement("input");
+  divCity.appendChild(inputCity);
+  inputCity.setAttribute("type", "text");
+  inputCity.setAttribute("class", "form__input");
+  inputCity.setAttribute("aria-label", "ville");
+  inputCity.setAttribute("value", "Trouloulou");
+  inputCity.placeholder = "Ville";
+  inputCity.required = true;
+  //vérification
+  inputCity.addEventListener("change", (e) => {
+    if (validateString(inputCity.value)) {
+    } else {
+      alert("un nom de ville ne contient ni symbole ni chiffre");
+      e.preventDefault();
+    }
+  });
+  // ajout du champs email :
+  const divEmail = document.createElement("div");
+  orderForm.appendChild(divEmail);
+  divEmail.className = "form flex-col";
+  const labelEmail = document.createElement("label");
+  divEmail.appendChild(labelEmail);
+  labelEmail.setAttribute("type", "text");
+  labelEmail.textContent = "Email : ";
+
+  const inputEmail = document.createElement("input");
+  divEmail.appendChild(inputEmail);
+  inputEmail.setAttribute("type", "email");
+  inputEmail.setAttribute("class", "form__input");
+  inputEmail.setAttribute("aria-label", "Email");
+  inputEmail.setAttribute("value", "me@voila.fr");
+
+  inputEmail.placeholder = "email@mail.com";
+  inputEmail.required = true;
+  //vérification
+  inputEmail.addEventListener("change", (e) => {
+    if (validateEmail(inputEmail.value)) {
+    } else {
+      alert("Veuillez renseigner un mail valide, de type nom@mail.com");
+      e.preventDefault();
+    }
+  });
+
+  //création du bouton de validation de commande
+  const divSubmit = document.createElement("div");
+  containerForm.appendChild(divSubmit);
+  divSubmit.className = "container__form center";
+  const submitBtn = document.createElement("button");
+  divSubmit.appendChild(submitBtn);
+  submitBtn.className = "btn";
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.setAttribute("aria-label", "valider la commande");
+  submitBtn.textContent = "valider la commande";
+
+  // Si le formulaire est valide, envoi des données de la commande au serveur
+  submitBtn.addEventListener("click", (e) => {
+    if (
+      validateString(inputFirstName.value) &&
+      validateString(inputLastName.value) &&
+      validateAddress(inputAddress.value) &&
+      validatePostCode(inputPostCode.value) &&
+      validateString(inputCity.value) &&
+      validateEmail(inputEmail.value)
+    ) {
+      e.preventDefault();
+
+      //envoi du montant total au localStorage
+      localStorage.setItem("totalPrice", totalPrice);
+      const storagePrice = localStorage.getItem("totalPrice");
+      console.log(storagePrice);
+
+      //création de l'objet "contact"
+      let contact = {
+        firstName: inputFirstName.value,
+        lastName: inputLastName.value,
+        address: inputAddress.value,
+        city: inputCity.value,
+        email: inputEmail.value,
+      };
+      console.log(contact);
+
+      //création du tableau "products"(= ID des nounours sur panier)
+      let products = [];
+      for (storedArticle of storedArticles) {
+        let productsId = storedArticle.articleId;
+        products.push(productsId);
+      }
+      console.log(products);
+
+      //création de l'obet à envoyer, regroupant contact et produits :
+      let send = {
+        contact,
+        products,
+      };
+      console.log(send);
+
+      // envoi des données au serveur
+      const post = async function (data) {
+        try {
+          let response = await fetch(
+            "http://localhost:3000/api/teddies/order",
+            {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (response.ok) {
+            let data = await response.json();
+            console.log(data.orderId);
+            localStorage.setItem("responseOrder", data.orderId);
+            console.log(data.orderId);
+            localStorage.removeItem("newArticle");
+            window.location = "order.html";
+          } else {
+            e.preventDefault();
+            console.error("Retour du serveur : ", response.status);
+            alert("Erreur rencontrée : " + response.status);
+          }
+        } catch (error) {
+          alert("Erreur : " + error);
+        }
+      };
+
+      post(send);
+    }
   });
 }
-
-// 2- CALCULER LE TOTAL DU PANIER //
-
-let cartTotal = [];
-// on parcourt les prix dans la liste des produits du panier
-for (let j = 0; j < cartStorage.length; j++) {
-  let pricesInCart = cartStorage[j].price;
-  // afficher les prix du panier dans le total du tableau
-  cartTotal.push(pricesInCart);
-  //console.log(cartTotal);
-}
-
-// additionner les montants dans le talbeau : methode .reduce
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const totalPrice = cartTotal.reduce(reducer, 0);
-//console.log(totalPrice);
-
-// afficher le prix total dans le tableau
-displayTotalPrice = `
-     <h2 class="productTotal"> Total de ${totalPrice / 100} €</h2>   
-`;
-displayCart.insertAdjacentHTML("beforeend", displayTotalPrice);
-
-// 3- VIDER LE PANIER //
-
-// bouton "vider le panier" et "continuer vos achats"
-const clearCartBtn = `
-  <div class="clearCart">
-    <button class="btn btn_danger" aria-label="vider votre panier" type="button">Vider le panier
-    </button>
-  </div>  
- `;
-
-if (cartStorage !== null) {
-  displayCart.insertAdjacentHTML("afterend", clearCartBtn);
-
-}
-const clearAllBtn = document.querySelector(".clearCart");
-// suppression de la clé CART dans le localStorage pour vider le panier
-clearAllBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  //.clear pour vider le localStorage
-  localStorage.clear();
-  // boîte de dialogue
-  alert("Le panier a bien été vidé");
-  // rechargement de la page
-  window.location.reload();
-});
-
-// 4- FORMULAIRE //
-
-const displayForm = () => {
-  // récupération du conteneur du formulaire
-  const orderForm = document.querySelector(".container__form");
-  //console.log(orderForm);
-
-  // réupération des éléments du formulaire
-  const form = `
-    <form id="orderForm">
-    <div class="form flex-col">
-      <label class="form__label">Prénom</label>
-      <input id="firstName" class="form__input"  aria-label="Prénom" type="text" placeholder="votre prénom" required value ="Fanny"/>
-    </div>
-    <div class="form flex-col">
-      <label class="form__label">Nom</label>
-      <input id="lastName" class="form__input" aria-label="nom" type="text" placeholder="votre nom"
-      required value="Code"/>
-    </div>
-    <div class="form flex-col">
-      <label class="form__label">Email</label>
-      <input id="email" class="form__input" aria-label="email" type="text" placeholder="ex : orinico@mail.com"  value="me@voila.fr" required"/> 
-    </div>
-    <div class="form flex-col">
-      <label class="form__label">Adresse</label>
-      <input id="address" class="form__input" aria-label="adresse" type="text" placeholder="numéro, voie, code postal" required value="mon adresse"/> 
-    </div>
-    <div class="form flex-col">
-      <label class="form__label">Code Postal</label>
-      <input id="postalCode" class="form__input" aria-label="code postal" type="text" placeholder="75000" required value="12345"/> 
-    </div>
-    <div class="form flex-col">
-      <label class="form__label">Ville</label>
-      <input id="city" class="form__input" aria-label="ville" type="text" placeholder="ville" required value="ma Ville"/>
-    </div>
-    <div class="form flex-col terms">
-    <input id="terms" aria-label="valider les conditions générales de vente" type="checkbox" value="" required checked/> 
-    <label class="terms--check"> Accepter les termes et conditions générales de vente </label>
-    </div>
-     
-    <div class="form container">
-    <button id="order" class="btn" aria-label="valider la commande" type="submit"> 
-      valider la commande
-    </button>
-    </div>
-    </form>
-`;
-  //injection des éléments HTML "à la suite"
-  orderForm.insertAdjacentHTML("afterend", form);
-};
-
-displayForm();
-
-// récupération du bouton "valider la commande"
-const validateOrderBtn = document.querySelector("#order");
-
-//Ecouteur d'événements du bouton au clic
-validateOrderBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  // récupération des valeurs renseignées dans le formulaire
-  const contact = {
-    firstName: document.querySelector("#firstName").value,
-    lastName: document.querySelector("#lastName").value,
-    email: document.querySelector("#email").value,
-    address: document.querySelector("#address").value,
-    postalCode: document.querySelector("#postalCode").value,
-    city: document.querySelector("#city").value,
-  };
-console.log(contact);
-  // contrôle de validité des données utilisateur avec des REGEX
-
-  const regExStringValueInput = (value) =>{
-    return/^[a-zA-Z\-]+$/.test(value);
-  };
-  const regExPostalCodeInput = (value) =>{
-    return/^[0-9]{5}/g.test(value);
-  }
-  const regExEmailInput = (value) =>{
-    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
-  };
-
-  const regExAddressInput = (value) => {
-    return /^[a-zA-Z0-9\s\,\''\-]*$/.test(value);
-  };
-  
-  function firstNameValidity(){
-    const firstNameInput = contact.firstName;
-    if(regExStringValueInput(firstNameInput)){
-      return true;
-    } else {
-      alert("Veuillez renseigner un prénom valide");
-      return false;
-    }
-  }
-  function lastNameValidity(){
-    const lastNameInput = contact.lastName;
-    if(regExStringValueInput(lastNameInput)){
-      return true;
-    } else {
-      alert("Veuillez renseigner un prénom valide");
-      return false;
-    }
-  }
-
-  function emailValidity(){
-    const emailInput = contact.email;
-    if(regExEmailInput(emailInput)){
-      return true;
-    } else {
-      alert('Un email doit contenir @ et ".". Veuillez renseigner un email valide');
-      return false;
-    }
-  }
-
-  function addressValidity(){
-    const addressInput = contact.address;
-    if(regExAddressInput(addressInput)){
-      return true;
-    } else {
-      alert("une adresse ne doit pas contenir de caractères spéciaux. Veuillez renseigner une addresse valide");
-      return false;
-    }
-  }
-
-  function postalCodeValidity(){
-    const postalCodeInput = contact.postalCode;
-    if(regExPostalCodeInput(postalCodeInput)){
-      return true;
-    } else {
-      alert("Un code postal ne doit contenir que 5 chiffes. Veuillez renseigner un code postal valide");
-      return false;
-    }
-  }
-
-  function cityValidity(){
-    const cityInput = contact.city;
-    if(regExAddressInput(cityInput)){
-      return true;
-    } else {
-      alert("Un nom de ville ne doit contenir que les lettres. Veuillez renseigner un nom  de ville valide");
-      return false;
-    }
-  }
-
-  ////
- const products = [];
-  for( let k = 0; k < cartStorage.length; k++) {
-    let getOrderId = cartStorage[k]._id;
-    products.push(getOrderId)
-  }
-console.log(products);
-  // contrôle de validité du formulaire avant envoi dans le localStorage
-if (firstNameValidity() && lastNameValidity() && emailValidity() && addressValidity() && postalCodeValidity() && cityValidity()) {
-  // ajouter le formulaire dans le localStorage
-  localStorage.setItem ("contact", JSON.stringify(contact));
-} else {
-  alert ('Veuillez remplir le formulaire corrrectement.');
-  return 
-}
-
-// Objet des valeurs du formulaire de contact et du contenu du panier à envoyer au serveur
- const toSend = {
-  contact,
-  products,
- }
- const toSendJson = JSON.stringify(toSend);
-
- const order = fetch (`http://localhost:3000/api/teddies/order`, {
-   method: 'POST',
-   body: toSendJson,
-   headers: { "Content-Type" : "application/json" },
-  
- });
- 
- // préparation du prix à afficher dans la page de confirmation de commande
- let orderTotalPrice = document.querySelector(".productTotal").innerText;
-
- //Réponse serveur
- order.then(async(res) => {
-  try {
-    const cartContent = await res.json();
-  
-    localStorage.setItem("orderId", cartContent.orderId);
-    localStorage.setItem("total", orderTotalPrice);
-    document.location.href = "order.html";
-  } catch (e) {
-    alert(error)
-  }
- })
-
-});

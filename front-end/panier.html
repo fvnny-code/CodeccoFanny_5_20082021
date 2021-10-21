@@ -38,41 +38,32 @@
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" aria-current="page" href="/index.html">
-              <img
-                src="../back-end/images/icon-home.png"
-                alt="icone de maison pour le lien accueil"
-                style="height: 40px"
-              />Accueil</a
+            <img src="../back-end/images/icon-home.png" alt="icone pour le lien vers l'accueil" style="height: 40px" />
+            <a class="nav__link" aria-current="page" href="/index.html"
+              >Accueil</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="front-end/panier.html"
-              ><img
-                src="../back-end/images/icon-chariot.png"
-                alt="icone de chariot pour le lien panier"
-                style="height: 40px"
-              />Panier</a
-            >
+            <img
+              src="../back-end/images/icon-chariot.png" alt="icone pour le lien vers la page panier"
+              style="height: 40px"
+            />
+            <a class="nav__link" href="/front-end/panier.html">Panier</a>
           </li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main id="cartPage" class="container center">
+      <h1>Orinoco</h1>
+      <h2>Récapitulatif de votre panier</h2>
       <!-- Panier vide -->
+      <section id="emptyCart"></section>
 
       <!-- Tableau panier -->
-      <section id="cart" class="container">
-        <h2 class="cart-title">Contenu du panier</h2>
-        <div class="container container__table"></div>
-        <div id="continueShopping">
-          <a href="../index.html">
-            <button class="btn btn--back" aria-label="continuer vos achats">
-              Continuer vos achats
-            </button>
-          </a>
-        </div>
-      </section>
+      <section id="cart" class="container"></section>
+      <a href="../index.html" class="btn btn--back" aria-label="retour à l'accueil">
+          Retour à l'accueil
+      </a>
       <!-- Formulaire -->
       <section id="orderValidation" class="container">
         <h2 class="cart__title">Passer commande</h2>

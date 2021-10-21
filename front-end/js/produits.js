@@ -1,90 +1,156 @@
-(async function () {
-  const teddyId = getTeddyId();
-  const teddyData = await getTeddyData(teddyId);
-  addEventListenerToCartBtn(teddyData);
-  displayProduct(teddyData);
-})();
+const urlParams = new URL(document.location).searchParams;
+const id = urlParams.get("id");
+console.log(id);
 
-function addEventListenerToCartBtn(teddyData) {
-  let btn = document.getElementById("addToCartBtn");
-  btn.addEventListener("click", () => {
-    addToCart(teddyData);
-  });
-}
+const getTeddyData = async function () {
+  // récupération des données du teddy sélectionné par son id
+  try {
+    let response = await fetch(`http://localhost:3000/api/teddies/` + id);
+    if (response.ok) {
+      let teddyId = await response.json();
+      console.log(teddyId);
 
-// Récupération de l'id dans les searchParams de l'url
-function getTeddyId() {
-  let params = new URL(document.location).searchParams;
-  let id = params.get("id");
-  return id;
-}
-// Récupération des data dans l'API
+      // création H2 de la page
+      const teddyMainSection = document.getElementById("product");
+      const teddyH2 = document.createElement("h2");
+      teddyMainSection.appendChild(teddyH2);
+      teddyH2.className = 'center';
+      teddyH2.textContent = "Orinoco vous présente " + teddyId.name;
+      
+      // création de le div de l'ours
+      const teddyFigure = document.createElement("figure");
+      teddyMainSection.appendChild(teddyFigure);
+      teddyFigure.className = "card";
+      // ajout de l'image à la figure de l'ours
+      const teddyImg = document.createElement("img");
+      teddyFigure.appendChild(teddyImg);
+      teddyImg.setAttribute("src", teddyId.imageUrl);
+      teddyImg.setAttribute("alt", "ours en peluche " + teddyId.name);
+      teddyImg.setAttribute("title", "ours en peluche " + teddyId.name);
+      teddyImg.className = "card__img";
+      //création de la figcaption d'infos du nounours
+      const teddyFigcaption = document.createElement("figcaption");
+      teddyFigure.appendChild(teddyFigcaption);
+      teddyFigcaption.className = "card__body";
+      // ajout du nom du nounours
+      const teddyH3 = document.createElement("h3");
+      teddyFigcaption.appendChild(teddyH3);
+      teddyH3.className = "card__title";
+      teddyH3.textContent = teddyId.name;
+      //ajout de la description du produit
+      const teddyDescription = document.createElement("p");
+      teddyFigcaption.appendChild(teddyDescription);
+      teddyDescription.className = "card__description center";
+      teddyDescription.textContent = teddyId.description;
+      
+      //ajout du prix
+      const teddyPrice = document.createElement("p");
+      teddyFigcaption.appendChild(teddyPrice);
+      teddyPrice.className = "card__price";
+      teddyPrice.textContent = teddyId.price / 100 + " €";
+      //création du formulaire d'options de couleurs
+      const formColors = document.createElement("form");
+      teddyFigcaption.appendChild(formColors);
 
-function getTeddyData(teddyId) {
-  return fetch(`http://localhost:3000/api/teddies/${teddyId}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((teddyData) => {
-      return teddyData;
-      //   données API
-    })
-    .catch((error) => {
-      alert(
-        "La connexion au serveur n'a pu être effectuée. veuillez réessayer un peu plus tard..."
+      const formColorsDiv = document.createElement("div");
+      formColors.appendChild(formColorsDiv);
+      formColorsDiv.className = "colors__choice";
+
+      const formColorsLabel = document.createElement("label");
+      formColorsDiv.appendChild(formColorsLabel);
+      formColorsLabel.textContent = "Options de couleurs : ";
+      formColorsLabel.setAttribute(
+        "for",
+        "options de couleurs de " + teddyId.name
       );
-    });
-}
 
-// affichage des données du produit selectionné dans l'API
-function displayProduct(teddyData) {
-  document.querySelector(".card__img").src = teddyData.imageUrl;
-  document.querySelector(".card__title").textContent = teddyData.name;
-  document.querySelector(".card__description").textContent =
-    teddyData.description;
-  document.querySelector(".card__price").textContent = `${teddyData.price / 100}.00 €`;
-  document.querySelector(".choice").innerHTML += `
-   <form class="card__form">
-    <label for="color--select">Couleur :</label>
-    <select name="teddyColor" id="color--select" type="text"></select>
-   </form>`;
-  //Récupération de la balise select contenant les balises option qui correspondent à la couleur
-  const selectTag = document.querySelector("#color--select");
-  // options de sélection de couleurs
-  const selectColors = teddyData.colors;
+      const selectColors = document.createElement("select");
+      formColorsDiv.appendChild(selectColors);
+      selectColors.setAttribute(
+        "name",
+        "Options deu couleurs de " + teddyId.name
+      );
+      selectColors.setAttribute("id", "color--select");
+      selectColors.setAttribute("type", "text");
 
-  for (let i = 0; i < selectColors.length; i++) {
-    let option = document.createElement("option");
-    option.innerText = selectColors[i];
-    selectTag.appendChild(option);
-  }
-}
+      //ajout des options de couleurs
+      const colors = teddyId.colors;
 
-// ajout dans le panier via localStorage
+      for (i = 0; i < colors.length; i++) {
+        const selectOption = document.createElement("option");
+        selectColors.appendChild(selectOption);
+        selectOption.textContent = colors[i];
+        selectOption.setAttribute("value", colors[i]);
+      }
 
-function addToCart(teddyData) {
-  // récupération du panier déjà existant dans le localStorage
-  
-  let cart = JSON.parse(localStorage.getItem("CART")) ||[];
+      //création du bouton panier
+      let addToCart = document.createElement("button");
+      teddyFigcaption.appendChild(addToCart);
+      addToCart.type = "submit";
+      addToCart.name = "add";
+      addToCart.ariaLabel = "ajouter au panier";
+      addToCart.id = "addToCartBtn";
+      addToCartBtn.className = "btn btn--validate";
+      addToCartBtn.textContent = "Ajouter au panier";
 
+      // récupération des données et envoi à la page panier
+      addToCart.addEventListener("click", (e) => {
+        e.preventDefault();
+        //stockage de données dans le localStorage
+        let articlesInCart = {
+          articleName: teddyId.name,
+          articleId: teddyId._id,
+          articleColor: selectColors.value,
+          quantity: 1,
+          articlePrice: teddyId.price / 100,
+        };
+        console.log(articlesInCart);
 
-  let teddyInCart = false;
-  for (const currentTeddy of cart) {
-    if (currentTeddy._id == teddyData._id) {
-      currentTeddy.quantity++;
-      teddyInCart = true;
-      break;
+        let storedArticles = JSON.parse(localStorage.getItem("newArticle"));
+        const articleColor = selectColors.value;
+        if (storedArticles) {
+          storedArticles.push(articlesInCart);
+          localStorage.setItem("newArticle", JSON.stringify(storedArticles));
+          console.log(storedArticles);
+
+          if (
+            window.confirm(
+              teddyId.name +
+                " " +
+                articleColor +
+                " a bien été ajouté. Souahitez vous consulter votre panier ?"
+            )
+          ) {
+            window.location.href = "panier.html";
+          } else {
+            window.location.href = "../index.html";
+          }
+        } else {
+          storedArticles = [];
+          storedArticles.push(articlesInCart);
+          localStorage.setItem("newArticle", JSON.stringify(storedArticles));
+          console.log(storedArticles);
+          if (
+            window.confirm(
+              teddyId.name +
+                " " +
+                articleColor +
+                " a bien été ajouté. Souahitez vous consulter votre panier ?"
+            )
+          ) {
+            window.location.href = "panier.html";
+          } else {
+            window.location.href = "../index.html";
+          }
+        }
+      });
+    } else {
+      console.error("Retour du serveur : ", response.status);
+      alert("Erreur rencontrée : " + response.status);
     }
+  } catch (error) {
+    alert("Erreur : " + error);
   }
-  
-  if (teddyInCart == false) {
-    teddyData.quantity = 1;
-    cart.push(teddyData);
-  }
+};
 
-  
-
-  // Sauvegarde du nouveau panier dans la localStorage
-  
-  localStorage.setItem("CART", JSON.stringify(cart));
-}
+getTeddyData();
