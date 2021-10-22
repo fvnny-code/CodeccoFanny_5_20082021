@@ -6,6 +6,7 @@
   for (teddy of teddies) {
     // on affiche l'ourson en question
     displayProduct(teddy);
+    console.log(teddies);
   }
 })();
 

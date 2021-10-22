@@ -14,9 +14,9 @@ const getTeddyData = async function () {
       const teddyMainSection = document.getElementById("product");
       const teddyH2 = document.createElement("h2");
       teddyMainSection.appendChild(teddyH2);
-      teddyH2.className = 'center';
+      teddyH2.className = "center";
       teddyH2.textContent = "Orinoco vous présente " + teddyId.name;
-      
+
       // création de le div de l'ours
       const teddyFigure = document.createElement("figure");
       teddyMainSection.appendChild(teddyFigure);
@@ -42,7 +42,7 @@ const getTeddyData = async function () {
       teddyFigcaption.appendChild(teddyDescription);
       teddyDescription.className = "card__description center";
       teddyDescription.textContent = teddyId.description;
-      
+
       //ajout du prix
       const teddyPrice = document.createElement("p");
       teddyFigcaption.appendChild(teddyPrice);
@@ -96,7 +96,7 @@ const getTeddyData = async function () {
       // récupération des données et envoi à la page panier
       addToCart.addEventListener("click", (e) => {
         e.preventDefault();
-        //stockage de données dans le localStorage
+        //stockage des données dans le localStorage
         let articlesInCart = {
           articleName: teddyId.name,
           articleId: teddyId._id,
@@ -118,7 +118,7 @@ const getTeddyData = async function () {
               teddyId.name +
                 " " +
                 articleColor +
-                " a bien été ajouté. Souahitez vous consulter votre panier ?"
+                " a bien été ajouté. Souhaitez vous consulter votre panier ?"
             )
           ) {
             window.location.href = "panier.html";
@@ -135,7 +135,7 @@ const getTeddyData = async function () {
               teddyId.name +
                 " " +
                 articleColor +
-                " a bien été ajouté. Souahitez vous consulter votre panier ?"
+                " a bien été ajouté. Souhaitez vous consulter votre panier ?"
             )
           ) {
             window.location.href = "panier.html";
@@ -154,3 +154,4 @@ const getTeddyData = async function () {
 };
 
 getTeddyData();
+

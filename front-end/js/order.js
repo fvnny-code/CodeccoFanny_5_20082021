@@ -10,4 +10,4 @@ function displayOrderId() {
   localStorage.clear();
 }
 
-//vidage du localStorage pour pouvoir refaire des achats
+
