@@ -6,13 +6,13 @@
   for (teddy of teddies) {
     // on affiche l'ourson en question
     displayProduct(teddy);
-    console.log(teddies);
+    console.log(teddies)
   }
 })();
 
 //appel API
 function getProducts() {
-  return fetch("http://localhost:3000/api/teddies")
+  return fetch('http://localhost:3000/api/teddies')
     .then((response) => {
       return response.json();
     })

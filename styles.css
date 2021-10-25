@@ -96,7 +96,7 @@ a {
 }
 .btn--validate {
   margin: 0.5rem;
-  background: darkslategray;
+
   color: white;
 }
 
@@ -240,8 +240,15 @@ footer {
 .card__title {
   text-transform: uppercase;
   font-family: "shrikhand", cursive;
-}
 
+}
+.card__description {
+ max-width: 60%;
+}
+.card__price {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 #color--select {
   background: white;
   border: transparent;
@@ -293,7 +300,9 @@ footer {
 #cart {
   padding: 1rem;
 }
-
+.cart__title{
+  margin-top: 1.5rem;
+}
 .cart__item {
   display: flex;
   justify-content: space-evenly;
@@ -378,4 +387,5 @@ footer {
     row-gap: 0.5rem;
     max-width: 100%;
   }
+  
 }

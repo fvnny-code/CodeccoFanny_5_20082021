@@ -10,10 +10,7 @@ if (storedArticles == null || storedArticles.length === 0) {
   emptyCartSection.appendChild(emptyCartDiv);
   emptyCartDiv.className = " container center";
 
-  const emptyCartTitle = document.createElement("h3");
-  emptyCartDiv.appendChild(emptyCartTitle);
-  emptyCartTitle.className = "cart-title";
-  emptyCartTitle.textContent = "Votre panier est bien vide !";
+ 
 } else {
   //Si le panier contient des articles
   emptyCartSection.style.display = "none";

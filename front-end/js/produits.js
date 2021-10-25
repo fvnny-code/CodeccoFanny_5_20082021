@@ -10,13 +10,9 @@ const getTeddyData = async function () {
       let teddyId = await response.json();
       console.log(teddyId);
 
-      // création H2 de la page
+     
       const teddyMainSection = document.getElementById("product");
-      const teddyH2 = document.createElement("h2");
-      teddyMainSection.appendChild(teddyH2);
-      teddyH2.className = "center";
-      teddyH2.textContent = "Orinoco vous présente " + teddyId.name;
-
+      
       // création de le div de l'ours
       const teddyFigure = document.createElement("figure");
       teddyMainSection.appendChild(teddyFigure);
