@@ -6,11 +6,8 @@ const cartMain = document.querySelector("#cartPage");
 const emptyCartSection = document.querySelector("#emptyCart");
 // si le panier est vide
 if (storedArticles == null || storedArticles.length === 0) {
-  const emptyCartDiv = document.createElement("div");
-  emptyCartSection.appendChild(emptyCartDiv);
-  emptyCartDiv.className = " container center";
-
- 
+  document.querySelector("#cart").style.display = "none";
+  document.querySelector("#orderValidation").style.display = "none";
 } else {
   //Si le panier contient des articles
   emptyCartSection.style.display = "none";

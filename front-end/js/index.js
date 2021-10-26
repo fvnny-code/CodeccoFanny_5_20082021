@@ -37,7 +37,7 @@ function displayProduct(teddy) {
   cloneElement.querySelector(".card__price").textContent = `${
     teddy.price / 100
   }.00 €`;
-  // cloneElement.querySelector(".card__description").textContent = teddy.description;
+  
   cloneElement.querySelector(".btn").href += `?id=${teddy._id}`;
 
   container.appendChild(cloneElement);

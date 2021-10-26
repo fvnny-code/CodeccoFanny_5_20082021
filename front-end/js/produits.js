@@ -29,10 +29,10 @@ const getTeddyData = async function () {
       teddyFigure.appendChild(teddyFigcaption);
       teddyFigcaption.className = "card__body";
       // ajout du nom du nounours
-      const teddyH3 = document.createElement("h3");
-      teddyFigcaption.appendChild(teddyH3);
-      teddyH3.className = "card__title";
-      teddyH3.textContent = teddyId.name;
+      const teddyH2 = document.createElement("h2");
+      teddyFigcaption.appendChild(teddyH2);
+      teddyH2.className = "card__title";
+      teddyH2.textContent = teddyId.name;
       //ajout de la description du produit
       const teddyDescription = document.createElement("p");
       teddyFigcaption.appendChild(teddyDescription);
@@ -44,30 +44,29 @@ const getTeddyData = async function () {
       teddyFigcaption.appendChild(teddyPrice);
       teddyPrice.className = "card__price";
       teddyPrice.textContent = teddyId.price / 100 + " €";
+
       //création du formulaire d'options de couleurs
       const formColors = document.createElement("form");
       teddyFigcaption.appendChild(formColors);
-
-      const formColorsDiv = document.createElement("div");
-      formColors.appendChild(formColorsDiv);
-      formColorsDiv.className = "colors__choice";
+      formColors.className = "colors__choice";
 
       const formColorsLabel = document.createElement("label");
-      formColorsDiv.appendChild(formColorsLabel);
+      formColors.appendChild(formColorsLabel);
       formColorsLabel.textContent = "Options de couleurs : ";
       formColorsLabel.setAttribute(
         "for",
-        "options de couleurs de " + teddyId.name
+        "color--select"
       );
+      formColorsLabel.setAttribute("type","text")
 
       const selectColors = document.createElement("select");
-      formColorsDiv.appendChild(selectColors);
+     formColors.appendChild(selectColors);
       selectColors.setAttribute(
         "name",
         "Options deu couleurs de " + teddyId.name
       );
       selectColors.setAttribute("id", "color--select");
-      selectColors.setAttribute("type", "text");
+      
 
       //ajout des options de couleurs
       const colors = teddyId.colors;
