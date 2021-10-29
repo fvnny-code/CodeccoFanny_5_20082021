@@ -13,7 +13,7 @@ const getTeddyData = async function () {
      
       const teddyMainSection = document.getElementById("product");
       
-      // création de le div de l'ours
+      // création de la carte produit de l'ours
       const teddyFigure = document.createElement("figure");
       teddyMainSection.appendChild(teddyFigure);
       teddyFigure.className = "card";
